@@ -2,6 +2,7 @@
   <div class="register">
     <img class="logo" src="../assets/logoTennis.png" />
     <h1>Sign Up</h1>
+    <h3>PROVA</h3>
     <input type="text" placeholder="enter name" />
     <input type="text" placeholder="enter email" />
     <input type="password" placeholder="enter password" />
@@ -19,6 +20,7 @@ export default {
 .logo {
   width: 100px;
 }
+
 .register {
   width: 300px;
   height: 40px;
