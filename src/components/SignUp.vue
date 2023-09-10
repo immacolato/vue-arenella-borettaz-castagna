@@ -2,11 +2,12 @@
   <div class="container">
     <div class="text-center">
       <img class="logo mt-5" src="../assets/logoTennis.png" alt="Tennis Logo" />
-      <h1 class="mt-3 text-center">TENNIS HUB</h1>
-      <h2 class="mt-5 text-center">Iscriviti</h2>
+      <h1 class="mt-2">TENNIS HUB</h1>
+      <h6 class="text-body-secondary">Il gestionale per i tuoi campi da tennis!</h6>
+      <h2 class="mt-5">Iscriviti:</h2>
     </div>
     <div>
-      <div class="col-md-6 mx-auto">
+      <div class="col-md-6 mx-auto border rounded py-4">
         <form class="d-flex flex-column" style="max-width: 400px; margin: 0 auto;">
           <div class="mb-3">
             <label for="nome">Inserisci il tuo nome</label>
