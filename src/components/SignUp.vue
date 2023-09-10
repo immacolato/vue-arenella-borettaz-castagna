@@ -10,15 +10,15 @@
         <form class="d-flex flex-column" style="max-width: 400px; margin: 0 auto;">
           <div class="mb-3">
             <label for="nome">Inserisci il tuo nome</label>
-            <input type="text" class="form-control rounded" id="nome" placeholder="Nome">
+            <input type="text" class="form-control" id="nome" placeholder="Nome">
           </div>
           <div class="mb-3">
             <label for="mail">Inserisci la tua mail</label>
-            <input type="email" class="form-control rounded" id="mail" placeholder="e-mail">
+            <input type="email" class="form-control" id="mail" placeholder="e-mail">
           </div>
           <div class="mb-3">
             <label for="password">Inserisci la tua password</label>
-            <input type="password" class="form-control rounded" id="password" placeholder="Password">
+            <input type="password" class="form-control" id="password" placeholder="Password">
           </div>
           <button type="submit" class="btn btn-success">Iscriviti!</button>
         </form>
