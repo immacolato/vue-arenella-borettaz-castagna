@@ -1,41 +1,54 @@
 <template>
-  <div class="register">
-    <img class="logo" src="../assets/logoTennis.png" />
-    <h1>TENNIS HUB</h1>
-    <h2>Sign Up</h2>
-    <input type="text" placeholder="enter name" />
-    <input type="text" placeholder="enter email" />
-    <input type="password" placeholder="enter password" />
-    <button>Sign Up</button>
+  <div class="container">
+    <div class="text-center">
+      <img class="logo" src="../assets/logoTennis.png" alt="Tennis Logo" />
+      <h1 class="mt-4">TENNIS HUB</h1>
+      <h2 class="mt-4">Iscriviti</h2>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form class="d-flex flex-column align-items-center">
+          <div class="mb-3 mt-1 form-group">
+            <input type="text" class="form-control custom-rounded" id="nome" placeholder="Nome">
+          </div>
+          <div class="mb-3 form-group">
+            <input type="email" class="form-control custom-rounded" id="mail" placeholder="Email">
+          </div>
+          <div class="mb-3 form-group">
+            <input type="password" class="form-control custom-rounded" id="password" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-custom">Iscriviti!</button>
+        </form>
+      </div>
+    </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'SignUp'
-}
-</script>
 
 <style>
 .logo {
   width: 100px;
 }
 
-.register {
-  width: 300px;
-  height: 40px;
-  padding-left: 20px;
-  display: block;
-  margin-bottom: 30px;
-  margin-right: auto;
-  margin-left: auto;
+.form-group {
+  margin-bottom: 20px;
 }
 
-.register button {
-  width: 320px;
-  height: 40px;
-  border: 1px solid green;
-  background: lightgreen;
-  cursor: pointer;
+.custom-rounded {
+  border-radius: 8px;
+}
+
+.btn-custom {
+  background-color: #006907;
+  border-color: #006907;
+  color: #fff;
+  width: 160px;
+  height: 32px;
+  border-radius: 16px;
+}
+
+.btn-custom:hover {
+  background-color: #FF6600;
+  border-color: #FF6600;
 }
 </style>
