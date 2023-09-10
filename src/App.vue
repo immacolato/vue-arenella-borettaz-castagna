@@ -12,10 +12,4 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  margin-top: 60px;
-}
-</style>
+<style></style>

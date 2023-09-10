@@ -1,54 +1,34 @@
 <template>
   <div class="container">
     <div class="text-center">
-      <img class="logo" src="../assets/logoTennis.png" alt="Tennis Logo" />
-      <h1 class="mt-4">TENNIS HUB</h1>
-      <h2 class="mt-4">Iscriviti</h2>
+      <img class="logo mt-5" src="../assets/logoTennis.png" alt="Tennis Logo" />
+      <h1 class="mt-3 text-center">TENNIS HUB</h1>
+      <h2 class="mt-5 text-center">Iscriviti</h2>
     </div>
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <form class="d-flex flex-column align-items-center">
-          <div class="mb-3 mt-1 form-group">
-            <input type="text" class="form-control custom-rounded" id="nome" placeholder="Nome">
+    <div>
+      <div class="col-md-6 mx-auto">
+        <form class="d-flex flex-column" style="max-width: 400px; margin: 0 auto;">
+          <div class="mb-3">
+            <label for="nome">Inserisci il tuo nome</label>
+            <input type="text" class="form-control rounded" id="nome" placeholder="Nome">
           </div>
-          <div class="mb-3 form-group">
-            <input type="email" class="form-control custom-rounded" id="mail" placeholder="Email">
+          <div class="mb-3">
+            <label for="mail">Inserisci la tua mail</label>
+            <input type="email" class="form-control rounded" id="mail" placeholder="e-mail">
           </div>
-          <div class="mb-3 form-group">
-            <input type="password" class="form-control custom-rounded" id="password" placeholder="Password">
+          <div class="mb-3">
+            <label for="password">Inserisci la tua password</label>
+            <input type="password" class="form-control rounded" id="password" placeholder="Password">
           </div>
-          <button type="submit" class="btn btn-custom">Iscriviti!</button>
+          <button type="submit" class="btn btn-success">Iscriviti!</button>
         </form>
       </div>
     </div>
   </div>
 </template>
 
-
 <style>
 .logo {
   width: 100px;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.custom-rounded {
-  border-radius: 8px;
-}
-
-.btn-custom {
-  background-color: #006907;
-  border-color: #006907;
-  color: #fff;
-  width: 160px;
-  height: 32px;
-  border-radius: 16px;
-}
-
-.btn-custom:hover {
-  background-color: #FF6600;
-  border-color: #FF6600;
 }
 </style>
