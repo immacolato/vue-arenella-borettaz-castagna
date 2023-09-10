@@ -7,7 +7,7 @@
       <h2 class="mt-5">Iscriviti:</h2>
     </div>
     <div>
-      <div class="col-md-6 mx-auto border rounded py-4">
+      <div class="col-md-6 mx-auto">
         <form class="d-flex flex-column" style="max-width: 400px; margin: 0 auto;">
           <div class="mb-3">
             <label for="nome">Inserisci il tuo nome</label>
