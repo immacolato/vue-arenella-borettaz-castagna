@@ -1,16 +1,22 @@
 {
-  "user": [
+  "users": [
     {
       "name": "Luca",
       "email": "arenella.luca@gmail.com",
-      "password": "test123",
-      "id": "1"
+      "password": "luca@123",
+      "id": 1
     },
     {
-      "name": "Mario",
-      "email": "mario.test@gmail.com",
-      "password": "mario123@",
-      "id": "XtAfoPB"
+      "name": "tony",
+      "email": "soprano@tony.com",
+      "password": "skand",
+      "id": 2
+    },
+    {
+      "name": "diego",
+      "email": "maradona@napoli.com",
+      "password": "asdasda",
+      "id": 3
     }
   ]
 }

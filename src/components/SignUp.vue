@@ -1,3 +1,7 @@
+<!-- Ricordati di far partire json server aprendo un terminale 
+con i permessi di admin nella cartella db usando il comando
+ >json-server --watch db.json  -->
+
 <template>
   <div class="container">
     <div class="text-center">
@@ -7,22 +11,22 @@
       <h2 class="mt-5">Iscriviti:</h2>
     </div>
     <div>
-      <div class="col-md-6 mx-auto">
-        <form class="d-flex flex-column" style="max-width: 400px; margin: 0 auto;">
+      <div class="register col-md-6 mx-auto">
+        <div class="d-flex flex-column" style="max-width: 400px; margin: 0 auto;">
           <div class="mb-3">
             <label for="nome">Inserisci il tuo nome</label>
-            <input type="text" class="form-control" id="nome" placeholder="Nome">
+            <input type="text" v-model="name" class="form-control" id="nome" placeholder="Nome">
           </div>
           <div class="mb-3">
             <label for="mail">Inserisci la tua mail</label>
-            <input type="email" class="form-control" id="mail" placeholder="e-mail">
+            <input type="email" v-model="email" class="form-control" id="mail" placeholder="e-mail">
           </div>
           <div class="mb-3">
             <label for="password">Inserisci la tua password</label>
-            <input type="password" class="form-control" id="password" placeholder="Password">
+            <input type="password" v-model="password" class="form-control" id="password" placeholder="Password">
           </div>
-          <button type="submit" class="btn btn-success">Iscriviti!</button>
-        </form>
+          <button v-on:click="signUp" type="submit" class="btn btn-success">Iscriviti!</button>
+        </div>
       </div>
     </div>
   </div>
@@ -33,3 +37,31 @@
   width: 100px;
 }
 </style>
+
+<script>
+import axios from 'axios';
+export default {
+  name: 'SignUp',
+  data() {
+    return {
+      name: '',
+      email: '',
+      password: ''
+    }
+  },
+  methods: {
+    async signUp() {
+      let result = await axios.post("http://localhost:3000/users", {
+        name: this.name,
+        email: this.email,
+        password: this.password
+      });
+      console.warn(result);
+      if (result.status == 201) {
+        alert("sign-up fatto");
+        localStorage.setItem("user-info", JSON.stringify(result.data))
+      }
+    }
+  }
+}
+</script>
