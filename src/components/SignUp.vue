@@ -58,8 +58,8 @@ export default {
       });
       console.warn(result);
       if (result.status == 201) {
-        alert("sign-up fatto");
         localStorage.setItem("user-info", JSON.stringify(result.data))
+        this.$router.push({name:'HomePage'})
       }
     }
   }
