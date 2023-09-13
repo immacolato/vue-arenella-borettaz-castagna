@@ -17,7 +17,7 @@
                         <label for="password">Inserisci la tua password</label>
                         <input type="password" v-model="password" class="form-control" id="password" placeholder="Password">
                     </div>
-                    <button class="btn btn-success">Accedi!</button>
+                    <button class="btn btn-success">Accedi</button>
                     <p class="text-center mt-4">
                         <router-link to="/sign-up">Iscriviti</router-link>
                     </p>
