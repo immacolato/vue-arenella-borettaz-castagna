@@ -1,15 +1,16 @@
 <template>
     <div class="container">
         <div class="text-center">
-            <img class="logo mt-5" src="../assets/logoTennis.png" alt="Tennis Logo" />
+            <img class="logo mt-2" src="../assets/logoTennis.png" alt="Tennis Logo" />
             <h1 class="mt-2">TENNIS HUB</h1>
             <h6 class="text-body-secondary">Il gestionale per i tuoi campi da tennis!</h6>
-            <h2 class="mt-5">Accedi:</h2>
+            <h2 class="mt-5">Effettua l'accesso:</h2>
         </div>
         <div>
-            <div class="register col-md-6 mx-auto">
-                <div class="d-flex flex-column" style="max-width: 400px; margin: 0 auto;">
-                    <div class="mb-3">
+            <div class="register col-md-6 mx-auto bg-success text-white rounded shadow-lg"
+                style="max-width: 420px; margin: 0 auto;">
+                <div class="d-flex flex-column" style="max-width: 320px; margin: 0 auto;">
+                    <div class="mb-3 mt-3">
                         <label for="mail">Inserisci la tua mail</label>
                         <input type="email" v-model="email" class="form-control" id="mail" placeholder="e-mail">
                     </div>
@@ -17,9 +18,9 @@
                         <label for="password">Inserisci la tua password</label>
                         <input type="password" v-model="password" class="form-control" id="password" placeholder="Password">
                     </div>
-                    <button v-on:click="login" class="btn btn-success">Accedi</button>
+                    <button v-on:click="login" class="btn btn-dark shadow-sm">Accedi</button>
                     <p class="text-center mt-4">
-                        <router-link to="/sign-up">Iscriviti</router-link>
+                        <router-link to="/sign-up" class="text-light">Sei nuovo? Iscriviti!</router-link>
                     </p>
                 </div>
             </div>
