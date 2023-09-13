@@ -17,6 +17,18 @@
       "email": "maradona@napoli.com",
       "password": "asdasda",
       "id": 3
+    },
+    {
+      "name": "wofmlldsm",
+      "email": "lpmd@smc.com",
+      "password": "omdfs",
+      "id": 4
+    },
+    {
+      "name": "Benedetto",
+      "email": "benny@test.com",
+      "password": "benny1233",
+      "id": 5
     }
   ]
 }
