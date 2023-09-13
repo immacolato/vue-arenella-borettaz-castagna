@@ -20,7 +20,9 @@
                     </div>
                     <button v-on:click="login" class="mt-3 btn btn-dark shadow-sm">Accedi</button>
                     <p class="text-center mt-4">
-                        <router-link to="/sign-up" class="text-light">Sei nuovo? Iscriviti!</router-link>
+                        <router-link to="/sign-up"
+                            class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Sei
+                            nuovo? Iscriviti!</router-link>
                     </p>
                 </div>
             </div>
