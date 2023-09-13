@@ -1,7 +1,3 @@
-<!-- Ricordati di far partire json server aprendo un terminale 
-con i permessi di admin nella cartella db usando il comando
- >json-server --watch db.json  -->
-
 <template>
   <div class="container">
     <div class="text-center">

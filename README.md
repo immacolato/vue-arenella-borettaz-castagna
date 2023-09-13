@@ -22,6 +22,12 @@ npm install
 npm run dev
 ```
 
+### Start json server
+
+```sh
+npm run start
+```
+
 ### Compile and Minify for Production
 
 ```sh
@@ -33,4 +39,5 @@ npm run build
 ```sh
 npm run lint
 ```
-"# vue-arenella-borettaz-castagna" 
+
+"# vue-arenella-borettaz-castagna"

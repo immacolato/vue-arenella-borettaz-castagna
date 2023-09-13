@@ -17,7 +17,7 @@
                         <label for="password">Inserisci la tua password</label>
                         <input type="password" v-model="password" class="form-control" id="password" placeholder="Password">
                     </div>
-                    <button class="btn btn-success">Accedi</button>
+                    <button v-on:click="login" class="btn btn-success">Accedi</button>
                     <p class="text-center mt-4">
                         <router-link to="/sign-up">Iscriviti</router-link>
                     </p>
@@ -28,7 +28,32 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-    name: 'LoginPage'
+    name: 'LoginPage',
+    data() {
+        return {
+            email: '',
+            password: ''
+        }
+    },
+    methods: {
+        async login() {
+            let result = await axios.get(
+                `http://localhost:3000/users?email=${this.email}&password=${this.password}`
+            )
+
+            if (result.status == 200 && result.data.length > 0) {
+                localStorage.setItem("user-info", JSON.stringify(result.data))
+                this.$router.push({ name: 'HomePage' })
+            }
+            console.warn(result)
+        }
+    },
+    mounted() {
+        let user = localStorage.getItem('user-info');
+        if (user)
+            this.$router.push({ name: 'HomePage' })
+    }
 }
 </script>

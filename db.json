@@ -29,18 +29,6 @@
       "email": "benny@test.com",
       "password": "benny1233",
       "id": 5
-    },
-    {
-      "name": "Giambattista",
-      "email": "gian@test.com",
-      "password": "12345",
-      "id": 6
-    },
-    {
-      "name": "Donato",
-      "email": "dona@test.com",
-      "password": "249jjls",
-      "id": 7
     }
   ]
 }
