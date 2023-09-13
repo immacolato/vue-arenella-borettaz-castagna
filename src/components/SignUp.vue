@@ -26,6 +26,9 @@ con i permessi di admin nella cartella db usando il comando
             <input type="password" v-model="password" class="form-control" id="password" placeholder="Password">
           </div>
           <button v-on:click="signUp" type="submit" class="btn btn-success">Iscriviti!</button>
+          <p class="text-center mt-4">
+            <router-link to="/login">Accedi</router-link>
+          </p>
         </div>
       </div>
     </div>
