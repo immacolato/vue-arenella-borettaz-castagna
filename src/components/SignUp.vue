@@ -7,7 +7,7 @@
       <h2 class="mt-3">Iscriviti:</h2>
     </div>
     <div>
-      <div class="register col-md-6 mx-auto bg-success text-white rounded shadow-lg"
+      <form @submit.prevent="signUp" class="register col-md-6 mx-auto bg-success text-white rounded shadow-lg"
         style="max-width: 420px; margin: 0 auto;">
         <div class="d-flex flex-column mb-5" style="max-width: 320px; margin: 0 auto;">
           <div class="mb-3 mt-3">
@@ -22,14 +22,15 @@
             <label for="password">Inserisci la tua password</label>
             <input type="password" v-model="password" class="form-control" id="password" placeholder="Password">
           </div>
-          <button v-on:click="signUp" type="submit" class="mt-3 btn btn-dark shadow-sm">Iscriviti!</button>
+          <button v-on:click="signUp" @keyup.enter="signUp" type="submit"
+            class="mt-3 btn btn-dark shadow-sm">Iscriviti!</button>
           <h6 class="text-center mt-2">— oppure —</h6>
           <p class="text-center mt-1">
             <router-link to="/login"
               class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Accedi</router-link>
           </p>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </template>
@@ -53,6 +54,21 @@ export default {
   },
   methods: {
     async signUp() {
+      // Verifica se tutti i campi sono stati compilati
+      if (!this.name || !this.email || !this.password) {
+        // Mostra un messaggio di errore o gestisci l'errore come preferisci
+        alert("Per favore, compila tutti i campi.");
+        return;
+      }
+
+      // Verifica il formato dell'indirizzo email usando una regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(this.email)) {
+        alert("Inserisci un indirizzo email valido.");
+        return;
+      }
+
+      // Continua con la registrazione se tutti i campi sono compilati e l'indirizzo email è valido
       let result = await axios.post("http://localhost:3000/users", {
         name: this.name,
         email: this.email,
@@ -65,6 +81,7 @@ export default {
       }
     }
   },
+
   mounted() {
     let user = localStorage.getItem('user-info');
     if (user)
