@@ -22,25 +22,19 @@ export default {
 .navbar-brand:hover {
     background-color: darkslategray;
     /* Cambia il colore di sfondo quando si fa hover */
-    color: #fff;
-    /* Cambia il colore del testo quando si fa hover */
-    transform: scale(1.1);
-    /* Aumenta la dimensione del riquadro */
-    padding: 16px 24px;
+    padding: 6px 24px;
     /* Aumenta il padding per allargare il riquadro */
 }
 
 .home:hover {
     background-color: #fff;
-    color: #008919;
-    transform: scale(1.1);
-    padding: 16px 24px;
+    color: #000 !important;
+    padding: 12px 24px;
 }
 
 .exit:hover {
     background-color: rgb(199, 0, 0);
     color: #fff;
-    transform: scale(1.1);
-    padding: 16px 24px;
+    padding: 12px 24px;
 }
 </style>
