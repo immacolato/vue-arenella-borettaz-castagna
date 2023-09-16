@@ -52,7 +52,10 @@ export default {
       password: ''
     }
   },
+
+
   methods: {
+    // Frontend - Vue.js
     async signUp() {
       // Verifica se tutti i campi sono stati compilati
       if (!this.name || !this.email || !this.password) {
@@ -68,16 +71,30 @@ export default {
         return;
       }
 
-      // Continua con la registrazione se tutti i campi sono compilati e l'indirizzo email è valido
-      let result = await axios.post("http://localhost:3000/users", {
-        name: this.name,
-        email: this.email,
-        password: this.password
-      });
-      console.warn(result);
-      if (result.status == 201) {
-        localStorage.setItem("user-info", JSON.stringify(result.data))
-        this.$router.push({ name: 'HomePage' })
+      try {
+        // Effettua una richiesta HTTP per ottenere i dati utente dal server
+        const response = await axios.get("http://localhost:3000/users");
+
+        // Verifica se l'account con l'email specificato è già presente nella lista degli utenti
+        if (response.data.some(user => user.email === this.email)) {
+          alert("Questo account è già registrato. Si prega di effettuare il login.");
+          return;
+        }
+
+        // Continua con la registrazione se tutti i campi sono compilati, l'indirizzo email è valido e l'account non esiste ancora
+        let result = await axios.post("http://localhost:3000/users", {
+          name: this.name,
+          email: this.email,
+          password: this.password
+        });
+
+        if (result.status == 201) {
+          localStorage.setItem("user-info", JSON.stringify(result.data));
+          this.$router.push({ name: 'HomePage' });
+        }
+      } catch (error) {
+        console.error("Si è verificato un errore durante la registrazione:", error);
+        alert("Si è verificato un errore durante la registrazione.");
       }
     }
   },
