@@ -90,5 +90,19 @@
       "password": "sdsa",
       "id": 15
     }
+  ],
+  "campiDaTennis": [
+    {
+      "name": "Torino Pallina Verde",
+      "contact": "394019929",
+      "address": "Via del Mare 1",
+      "id": 1
+    },
+    {
+      "name": "Torino Campo di Terra",
+      "contact": "3942323429",
+      "address": "Via del Po 13",
+      "id": 2
+    }
   ]
 }
