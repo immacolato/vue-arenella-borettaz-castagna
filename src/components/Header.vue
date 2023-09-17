@@ -1,8 +1,8 @@
 <template>
   <nav class="navbar navbar-dark bg-success shadow">
-    <a class="navbar-brand home rounded ms-5" href="#">Home</a>
-    <a class="navbar-brand rounded" href="#">Aggiungi Campo</a>
-    <a class="navbar-brand rounded" href="#">Modifica Campo</a>
+    <router-link class="navbar-brand home rounded ms-5" to="/">Home</router-link>
+    <router-link class="navbar-brand rounded" to="/add">Aggiungi Campo</router-link>
+    <router-link class="navbar-brand rounded" to="update">Modifica Campo</router-link>
     <a class="navbar-brand exit rounded me-5" v-on:click="logout" href="#">Esci</a>
   </nav>
 </template>

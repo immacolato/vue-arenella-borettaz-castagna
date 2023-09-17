@@ -16,10 +16,12 @@
                     </div>
                     <div class="mb-3">
                         <label for="password">Inserisci la tua password</label>
-                        <input type="password" v-model="password" class="form-control" id="password" placeholder="Password">
+                        <input type="password" v-model="password" @keyup.enter="login" class="form-control" id="password"
+                            placeholder="Password">
                     </div>
                     <button v-on:click="login" class="mt-3 btn btn-dark shadow-sm">Accedi</button>
                     <p class="text-center mt-4">
+
                         <router-link to="/sign-up"
                             class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Sei
                             nuovo? Iscriviti!</router-link>
