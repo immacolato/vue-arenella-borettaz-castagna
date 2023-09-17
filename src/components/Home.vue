@@ -1,23 +1,26 @@
 <template>
   <SiteHeader />
   <h1 class="text-center mt-5">Ciao {{ name }}, benvenuta/o in Tennis Hub</h1>
-  <table class="mt-5 table table-bordered">
-    <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Contatti</th>
-        <th scope="col">Indirizzo</th>
-      </tr>
-    </thead>
-    <tbody class="table-group-divider"></tbody>
-    <tr v-for="item in tennisField" :key="item.id">
-      <th scope="row">{{ item.id }}</th>
-      <td>{{ item.name }}</td>
-      <td>{{ item.contact }}</td>
-      <td>{{ item.address }}</td>
-    </tr>
-  </table>
+  <div class="container">
+    <table class="mt-5 table table-bordered table-hover rounded overflow-hidden ">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Contatti</th>
+          <th scope="col">Indirizzo</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr v-for="item in tennisField" :key="item.id">
+          <th scope="row">{{ item.id }}</th>
+          <td>{{ item.name }}</td>
+          <td>{{ item.contact }}</td>
+          <td>{{ item.address }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <script>
@@ -36,7 +39,7 @@ export default {
   },
   async mounted() {
     let user = localStorage.getItem('user-info')
-    this.name = JSON.parse(user)[0].name
+    this.name = JSON.parse(user)[0].name //[0] aggiunto perchè nel db gli utenti sono dentro un array e non un oggetto
     if (!user) {
       this.$router.push({ name: 'SignUp' })
     }
