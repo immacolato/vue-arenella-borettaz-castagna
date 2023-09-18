@@ -13,14 +13,15 @@
                 <div class="d-flex flex-column" style="max-width: 320px; margin: 0 auto;">
                     <div class="mb-3 mt-3">
                         <label for="mail">Inserisci la tua mail</label>
-                        <input type="email" v-model="email" class="form-control" id="mail" placeholder="e-mail">
+                        <input type="email" v-model="email" @keyup.enter="login" class="form-control" id="mail"
+                            placeholder="e-mail">
                     </div>
                     <div class="mb-3">
                         <label for="password">Inserisci la tua password</label>
                         <input type="password" v-model="password" @keyup.enter="login" class="form-control" id="password"
                             placeholder="Password">
                     </div>
-                    <button v-on:click="login" class="mt-3 btn btn-dark shadow-sm">Accedi</button>
+                    <button @click.prevent="login" class="mt-3 btn btn-dark shadow-sm">Accedi</button>
                     <p class="text-center mt-4">
 
                         <router-link to="/sign-up"

@@ -23,7 +23,7 @@
             <label for="password">Inserisci la tua password</label>
             <input type="password" v-model="password" class="form-control" id="password" placeholder="Password">
           </div>
-          <button v-on:click="signUp" @keyup.enter="signUp" type="submit"
+          <button @click.prevent="signUp" @keyup.enter="signUp" type="submit"
             class="mt-3 btn btn-dark shadow-sm">Iscriviti!</button>
           <h6 class="text-center mt-2">— oppure —</h6>
           <p class="text-center mt-1">
@@ -50,7 +50,7 @@ export default {
     return {
       name: '',
       email: '',
-      password: ''
+      password: '',
     }
   },
 
