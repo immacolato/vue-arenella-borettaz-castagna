@@ -1,20 +1,55 @@
 <template>
-  <nav class="navbar navbar-dark bg-success shadow">
-    <router-link class="navbar-brand home rounded ms-5" to="/">Home</router-link>
-    <router-link class="navbar-brand rounded" to="/add">Aggiungi Campo</router-link>
-    <router-link class="navbar-brand rounded" to="update">Modifica Campo</router-link>
-    <a class="navbar-brand exit rounded me-5" v-on:click="logout" href="#">Esci</a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow">
+    <button class="navbar-toggler mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" @click="toggleMobileMenu">
+      <span class="navbar-toggler-icon m"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <router-link
+            :class="['nav-link', 'home', 'navbar-brand', 'rounded', { 'mt-3': isMobileMenuOpen, 'mt-0': !isMobileMenuOpen }]"
+            to="/">Home</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link class="nav-link rounded" to="/add">Aggiungi Campo</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link class="nav-link rounded" to="/update">Modifica Campo</router-link>
+        </li>
+      </ul>
+    </div>
+    <li class="nav-link exit navbar-brand rounded me-3 ml-auto" v-on:click="logout" href="#">Esci</li>
   </nav>
 </template>
+
 
 <script>
 export default {
   name: 'SiteHeader',
+  data() {
+    return {
+      isMobileMenuOpen: false // Inizializza la variabile per il menu mobile
+    };
+  },
   methods: {
     logout() {
       localStorage.clear()
       this.$router.push({ name: 'LoginPage' })
+    },
+    toggleMobileMenu() {
+      this.isMobileMenuOpen = !this.isMobileMenuOpen; // Inverti lo stato del menu mobile quando si clicca sul bottone del toggler
+    },
+    handleResize() {
+      this.isMobileMenuOpen = window.innerWidth <= 992; // Imposta isMobileMenuOpen in base alla larghezza della finestra
     }
+  },
+  created() {
+    window.addEventListener('resize', this.handleResize); // Aggiungi il listener per il resize della finestra
+    this.handleResize(); // Chiama la funzione per inizializzare lo stato in base alla larghezza attuale
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.handleResize); // Rimuovi il listener quando il componente viene distrutto
   }
 }
 </script>
@@ -29,22 +64,20 @@ export default {
   /* Aggiungi una transizione fluida */
 }
 
-.navbar-brand:hover {
-  background-color: darkslategray;
-  /* Cambia il colore di sfondo quando si fa hover */
-  padding: 6px 24px;
-  /* Aumenta il padding per allargare il riquadro */
-}
-
 .home:hover {
   background-color: #fff;
   color: #000 !important;
-  padding: 12px 24px;
+}
+
+.nav-link:hover {
+  background-color: #fff;
+  color: #000 !important;
 }
 
 .exit:hover {
-  background-color: rgb(199, 0, 0);
-  color: #fff;
-  padding: 12px 24px;
+  background-color: #ff4935;
+  color: #ffffff !important;
+  padding: 4px;
+  cursor: pointer;
 }
 </style>
