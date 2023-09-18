@@ -1,12 +1,13 @@
 <template>
   <div class="container ">
-    <div class="text-center ">
+    <div class="text-center jumbotron">
       <img class="logo mt-2" src="../assets/logoTennis.png" alt="Tennis Logo" />
-      <h1 class="mt-2">TENNIS HUB</h1>
-      <h6 class="text-body-secondary">Il gestionale per i tuoi campi da tennis!</h6>
-      <h2 class="mt-3">Iscriviti:</h2>
-    </div>
-    <div>
+      <h1 class="mt-2 display-4">TENNIS HUB</h1>
+      <h6 class="lead">Il gestionale per i tuoi campi da tennis!</h6>
+      <a class="btn btn-success btn-sm" href="#" role="button">Scopri di più!</a>
+      <div>
+        <h2 class="mt-5">Effettua l'iscrizione:</h2>
+      </div>
       <form @submit.prevent="signUp" class="register col-md-6 mx-auto bg-success text-white rounded shadow-lg"
         style="max-width: 420px; margin: 0 auto;">
         <div class="d-flex flex-column mb-5" style="max-width: 320px; margin: 0 auto;">
