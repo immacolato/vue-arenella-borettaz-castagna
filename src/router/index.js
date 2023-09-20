@@ -11,9 +11,9 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes,
-  linkActiveClass: 'activeLink' // Imposta la classe per l'evidenziazione del link attivo
+  linkActiveClass: 'activeLink'
 })
 
 export default router
