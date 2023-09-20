@@ -86,7 +86,7 @@ export default {
 .exit:hover {
   background-color: #ff4935;
   color: #ffffff !important;
-  padding: 4px;
+  padding: 6px;
   cursor: pointer;
 }
 </style>
