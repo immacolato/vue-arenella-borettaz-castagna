@@ -9,6 +9,7 @@
           <th scope="col">Nome</th>
           <th scope="col">Contatti</th>
           <th scope="col">Indirizzo</th>
+          <th scope="col">Azioni</th>
         </tr>
       </thead>
       <tbody class="table-group-divider">
@@ -17,6 +18,7 @@
           <td>{{ item.name }}</td>
           <td>{{ item.contact }}</td>
           <td>{{ item.address }}</td>
+          <td><router-link :to="'/update/'+item.id">Aggiorna</router-link></td>
         </tr>
       </tbody>
     </table>

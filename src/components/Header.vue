@@ -16,10 +16,7 @@
             Campo</router-link>
 
         </li>
-        <li class="nav-item">
-          <router-link :class="['nav-link', 'rounded', { 'activeLink': $route.path === '/update' }]" to="/update">Modifica
-            Campo</router-link>
-        </li>
+
       </ul>
     </div>
     <li class="nav-link exit navbar-brand rounded me-3 ml-auto" v-on:click="logout" href="#">Esci</li>

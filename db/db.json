@@ -163,6 +163,12 @@
       "address": "Via test",
       "contact": "2039509",
       "id": 10
+    },
+    {
+      "name": "Centro sportivo Cadorna",
+      "address": "Via Cadorna 45 - Torino",
+      "contact": "03420584258",
+      "id": 11
     }
   ]
 }
