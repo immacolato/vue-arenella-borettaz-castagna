@@ -128,12 +128,41 @@
       "address": "Via del Po 13",
       "id": 2
     },
-
     {
       "name": "Montepio",
       "address": "Via roma 5",
       "contact": "3474611199",
       "id": 5
+    },
+    {
+      "name": "Val Di Campo",
+      "address": "Via Ciolla 12",
+      "contact": "0293450993",
+      "id": 6
+    },
+    {
+      "name": "Val Di Campo",
+      "address": "Via Ciolla 12",
+      "contact": "0293450993",
+      "id": 7
+    },
+    {
+      "name": "Val Di Campo",
+      "address": "Via Ciolla 12",
+      "contact": "0293450993",
+      "id": 8
+    },
+    {
+      "name": "Val Di Campo",
+      "address": "Via Ciolla 12",
+      "contact": "0293450993",
+      "id": 9
+    },
+    {
+      "name": "Prova 1",
+      "address": "Via test",
+      "contact": "2039509",
+      "id": 10
     }
   ]
 }

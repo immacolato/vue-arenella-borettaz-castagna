@@ -8,14 +8,17 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <router-link
-            :class="['nav-link', 'home', 'navbar-brand', 'rounded', { 'mt-3': isMobileMenuOpen, 'mt-0': !isMobileMenuOpen }]"
+            :class="['nav-link', 'home', 'navbar-brand', 'rounded', { 'activeLink': $route.path === '/' }, { 'mt-3': isMobileMenuOpen, 'mt-0': !isMobileMenuOpen }]"
             to="/">Home</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link rounded" to="/add">Aggiungi Campo</router-link>
+          <router-link :class="['nav-link', 'rounded', { 'activeLink': $route.path === '/add' }]" to="/add">Aggiungi
+            Campo</router-link>
+
         </li>
         <li class="nav-item">
-          <router-link class="nav-link rounded" to="/update">Modifica Campo</router-link>
+          <router-link :class="['nav-link', 'rounded', { 'activeLink': $route.path === '/update' }]" to="/update">Modifica
+            Campo</router-link>
         </li>
       </ul>
     </div>
@@ -54,26 +57,32 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+/* Stili globali per il link attivo */
+.activeLink {
+  color: #fff;
+  border-bottom: 4px solid;
+}
+
+/* Stili specifici per l'header */
 .navbar-brand {
-  transition:
-    background-color 0.3s,
-    color 0.3s,
-    transform 0.3s,
-    padding 0.3s;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s, padding 0.3s;
   /* Aggiungi una transizione fluida */
 }
 
-.home:hover {
+/* Stili per il link Home */
+.nav-link.home:hover {
   background-color: #fff;
   color: #000 !important;
 }
 
-.nav-link:hover {
+/* Stili per gli altri link */
+.nav-link:not(.home):not(.exit):hover {
   background-color: #fff;
   color: #000 !important;
 }
 
+/* Stili per il link Esci */
 .exit:hover {
   background-color: #ff4935;
   color: #ffffff !important;
@@ -81,3 +90,4 @@ export default {
   cursor: pointer;
 }
 </style>
+
