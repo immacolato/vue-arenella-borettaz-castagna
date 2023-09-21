@@ -43,7 +43,18 @@ export default {
         contact: this.campo.contact
       })
       if (result.status == 201) {
-        this.$router.push({ name: 'Home' })
+        // Mostra un alert
+        alert('Campo aggiunto con successo!');
+
+        // Svuota il form
+        this.campo.name = '';
+        this.campo.address = '';
+        this.campo.contact = '';
+
+        // Reindirizza l'utente alla pagina 'Home'
+        this.$router.push({ name: 'Home' });
+      } else {
+        alert('Si è verificato un errore durante l\'aggiunta del campo.');
       }
       console.warn('result', result)
     }
