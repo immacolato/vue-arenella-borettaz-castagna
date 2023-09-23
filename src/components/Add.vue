@@ -6,7 +6,8 @@
     <!-- Alert personalizzato Bootstrap -->
     <div v-if="showAlert" class="text-center alert alert-success alert-dismissible" role="alert">
       <strong>Messaggio:</strong> Campo aggiunto con successo!
-      <button type="button" class="close" @click="showAlert = false" aria-label="Close">
+      <button type="button" class="close rounded btn btn-sm btn-outline-dark ms-3" @click="showAlert = false"
+        aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>

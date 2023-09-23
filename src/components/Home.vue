@@ -1,7 +1,7 @@
 <template>
   <SiteHeader />
   <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
+    <div class="carousel-inner" style="max-height: 340px;">
       <div class="carousel-item active">
         <img src="..//assets/carosello1.jpg" class="d-block w-100" alt="..." />
       </div>
@@ -22,10 +22,10 @@
     </button>
   </div>
 
-  <h1 class="text-center mt-5">Ciao {{ name }}, benvenuta/o in Tennis Hub</h1>
+  <h1 class="text-center mt-2">Ciao {{ name }}, benvenuta/o in Tennis Hub</h1>
   <div class="container">
     <div class="mb-3 mt-3">
-      <label for="searchTerm" class="form-label">Cerca</label>
+      <label for="searchTerm" class="form-label">Cerca:</label>
       <input style="max-width: 320px" type="text" class="form-control" id="searchTerm" v-model="searchTerm"
         @input="performSearch" />
     </div>
@@ -75,7 +75,7 @@ export default {
 
   methods: {
     performSearch() {
-      // Filtra l'array tennisField in base al valore di searchTerm
+      // Filtra l'array filteredTennisField in base al valore di searchTerm
       this.filteredTennisField = this.tennisField.filter(item => {
         return item.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
           item.contact.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
@@ -98,6 +98,7 @@ export default {
       let result = await axios.get('http://localhost:3000/tennisField')
       console.warn(result)
       this.tennisField = result.data
+      this.filteredTennisField = result.data
     }
   },
 
