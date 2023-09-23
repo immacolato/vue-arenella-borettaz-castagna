@@ -12,21 +12,11 @@
         <img src="..//assets/carosello3.jpg" class="d-block w-100" alt="..." />
       </div>
     </div>
-    <button
-      class="carousel-control-prev"
-      type="button"
-      data-bs-target="#carouselExampleAutoplaying"
-      data-bs-slide="prev"
-    >
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-bs-target="#carouselExampleAutoplaying"
-      data-bs-slide="next"
-    >
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
@@ -34,7 +24,13 @@
 
   <h1 class="text-center mt-5">Ciao {{ name }}, benvenuta/o in Tennis Hub</h1>
   <div class="container">
-    <table class="mt-5 table table-bordered table-hover rounded overflow-hidden">
+    <div class="mb-3 mt-3">
+      <label for="searchTerm" class="form-label">Cerca</label>
+      <input style="max-width: 320px" type="text" class="form-control" id="searchTerm" v-model="searchTerm"
+        @input="performSearch" />
+    </div>
+
+    <table class="mt-5 mb-5 table table-bordered table-hover rounded overflow-hidden">
       <thead>
         <tr>
           <th scope="col">ID</th>
@@ -45,7 +41,7 @@
         </tr>
       </thead>
       <tbody class="table-group-divider">
-        <tr v-for="item in tennisField" :key="item.id">
+        <tr v-for="item in filteredTennisField" :key="item.id">
           <th scope="row">{{ item.id }}</th>
           <td>{{ item.name }}</td>
           <td>{{ item.contact }}</td>
@@ -68,7 +64,9 @@ export default {
   data() {
     return {
       name: '',
-      tennisField: []
+      tennisField: [],
+      searchTerm: '',
+      filteredTennisField: []
     }
   },
   components: {
@@ -76,6 +74,14 @@ export default {
   },
 
   methods: {
+    performSearch() {
+      // Filtra l'array tennisField in base al valore di searchTerm
+      this.filteredTennisField = this.tennisField.filter(item => {
+        return item.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+          item.contact.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+          item.address.toLowerCase().includes(this.searchTerm.toLowerCase());
+      });
+    },
     async deleteField(id) {
       let result = await axios.delete('http://localhost:3000/tennisField' + id)
       console.warn(result)
