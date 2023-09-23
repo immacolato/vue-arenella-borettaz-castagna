@@ -118,14 +118,14 @@
   "tennisField": [
     {
       "name": "Torino Pallina Verde",
-      "address": "Via del Mare 23",
+      "address": "Via del Mare 2",
       "contact": "394019924",
       "id": 1
     },
     {
       "name": "Torino Campo di Terra",
       "address": "Via del Po 16",
-      "contact": "3942323429",
+      "contact": "3942323422",
       "id": 2
     },
     {
@@ -135,8 +135,8 @@
       "id": 5
     },
     {
-      "name": "Val Di Campo",
-      "address": "Via Ciolla 12",
+      "name": "Val Di Campi",
+      "address": "Via Ciolla 24",
       "contact": "0293450993",
       "id": 6
     },
@@ -147,21 +147,21 @@
       "id": 7
     },
     {
-      "name": "Val Di Campo",
+      "name": "Val Di Camp1",
       "address": "Via Ciolla 12",
-      "contact": "0293450993",
+      "contact": "029345023",
       "id": 8
     },
     {
       "name": "Val Di Campo",
-      "address": "Via Ciolla 12",
-      "contact": "0293450993",
+      "address": "Via Ciolla  222",
+      "contact": "0293450992",
       "id": 9
     },
     {
-      "name": "Prova 1",
+      "name": "Prova 1ds",
       "address": "Via test",
-      "contact": "2039509",
+      "contact": "20395",
       "id": 10
     },
     {
@@ -181,12 +181,6 @@
       "address": "Via del Sole 6",
       "contact": "23335436787",
       "id": 13
-    },
-    {
-      "name": "Natalia",
-      "address": "Via roma 5",
-      "contact": "3474611199",
-      "id": 14
     }
   ]
 }
