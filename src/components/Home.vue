@@ -72,7 +72,8 @@ export default {
     }
   },
   components: {
-    SiteHeader
+    SiteHeader,
+    Footer
   },
 
   methods: {
@@ -99,4 +100,7 @@ export default {
     this.loadData()
   }
 }
+import Footer from './Footer.vue'
 </script>
+
+<Footer />
