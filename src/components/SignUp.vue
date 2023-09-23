@@ -34,6 +34,7 @@
       </form>
     </div>
   </div>
+  <SiteFooter />
 </template>
 
 <style>

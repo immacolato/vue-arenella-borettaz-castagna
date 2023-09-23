@@ -10,7 +10,7 @@
     </button>
   </div>
 
-  <div class="mt-5 container" style="max-width: 678px; margin: 0 auto">
+  <div class="mt-5 container" style="max-width: 678px; margin: 0 auto; margin-bottom: 120px;">
     <form class="row g-3">
       <input class="form-control" type="text" name="name" placeholder="Inserisci il nome del campo"
         v-model="campo.name" />
@@ -23,32 +23,47 @@
       </button>
     </form>
   </div>
+  <SiteFooter />
 </template>
     
 <script>
 import SiteHeader from './Header.vue'
+import SiteFooter from './Footer.vue'
 import axios from 'axios'
 
 export default {
   name: 'UpdatePage',
   components: {
-    SiteHeader
+    SiteHeader,
+    SiteFooter
   },
   data() {
     return {
       campo: {
         name: '',
         address: '',
-        contact: ''
+        contact: '',
       },
       name: '',
-      showAlert: false
+      showAlert: false,
+      campiIniziali: {} // Aggiungi un oggetto per i valori iniziali dei campi
     };
   },
   methods: {
-
     async aggiornaCampo() {
       console.warn(this.campo);
+
+      // Verifica se i campi sono stati modificati rispetto ai valori iniziali
+      const campiModificati =
+        this.campo.name !== this.campiIniziali.name ||
+        this.campo.address !== this.campiIniziali.address ||
+        this.campo.contact !== this.campiIniziali.contact;
+
+      if (!campiModificati) {
+        // Nessuna modifica ai campi
+        return;
+      }
+
       try {
         const result = await axios.put('http://localhost:3000/tennisField/' + this.$route.params.id, {
           name: this.campo.name,
@@ -56,23 +71,19 @@ export default {
           contact: this.campo.contact
         });
         if (result.status == 200) {
-          // Mostra l'alert
+          // Mostra l'alert solo se ci sono state modifiche
           this.showAlert = true;
-          // Svuota il form
-          this.campo.name = '';
-          this.campo.address = '';
-          this.campo.contact = '';
+          // Aggiorna i valori iniziali con i nuovi valori
+          this.campiIniziali = { ...this.campo };
         } else {
-          alert('Si è verificato un errore durante l\'aggiunta del campo.');
+          alert('Si è verificato un errore durante la modifica del campo.');
         }
         console.warn('result', result);
       } catch (error) {
         console.error('Errore durante la richiesta:', error);
-        alert('Si è verificato un errore durante l\'aggiunta del campo.');
+        alert('Si è verificato un errore durante la modifica del campo.');
       }
-
     },
-
   },
   async mounted() {
     let user = localStorage.getItem('user-info')
@@ -81,8 +92,10 @@ export default {
       this.$router.push({ name: 'SignUp' })
     }
     const result = await axios.get('http://localhost:3000/tennisField/' + this.$route.params.id);
-    console.warn(result.data)
-    this.campo = result.data
+    console.warn(result.data);
+    this.campo = result.data;
+    // Salva i valori iniziali dei campi
+    this.campiIniziali = { ...this.campo };
   },
   hideAlert() {
     this.showAlert = false;

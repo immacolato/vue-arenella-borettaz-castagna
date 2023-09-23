@@ -123,9 +123,9 @@
       "id": 1
     },
     {
-      "name": "Torino Campo di Terra",
-      "address": "Via del Po 16",
-      "contact": "3942323422",
+      "name": "",
+      "address": "",
+      "contact": "",
       "id": 2
     },
     {
@@ -159,13 +159,13 @@
       "id": 9
     },
     {
-      "name": "Prova 1ds",
+      "name": "Test1",
       "address": "Via test",
       "contact": "20395",
       "id": 10
     },
     {
-      "name": "Centro sportivo Cadorna",
+      "name": "Centro sportivo Cadoasas",
       "address": "Via Cadorna 45 - Torino",
       "contact": "03420584258",
       "id": 11

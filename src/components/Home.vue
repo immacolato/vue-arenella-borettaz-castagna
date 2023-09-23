@@ -54,10 +54,12 @@
       </tbody>
     </table>
   </div>
+  <SiteFooter />
 </template>
 
 <script>
 import SiteHeader from './Header.vue'
+import SiteFooter from './Footer.vue'
 import axios from 'axios'
 export default {
   name: 'HomePage',
@@ -71,7 +73,7 @@ export default {
   },
   components: {
     SiteHeader,
-    Footer
+    SiteFooter
   },
 
   methods: {
@@ -107,7 +109,6 @@ export default {
     this.loadData()
   }
 }
-import Footer from './Footer.vue'
 </script>
 
 <Footer />

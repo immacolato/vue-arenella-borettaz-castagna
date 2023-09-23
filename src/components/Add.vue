@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin-bottom: 120px">
     <SiteHeader />
     <h1 class="text-center mt-5">Ciao {{ name }}, benvenuta/o nella pagina di aggiunta campi</h1>
 
@@ -7,6 +7,14 @@
     <div v-if="showAlert" class="text-center alert alert-success alert-dismissible" role="alert">
       <strong>Messaggio:</strong> Campo aggiunto con successo!
       <button type="button" class="close rounded btn btn-sm btn-outline-dark ms-3" @click="showAlert = false"
+        aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div v-if="showEmptyFieldsAlert" class="text-center alert alert-danger alert-dismissible" role="alert">
+      <strong>Errore:</strong> Assicurati di compilare tutti i campi prima di aggiungere il campo!
+      <button type="button" class="close rounded btn btn-sm btn-outline-dark ms-3" @click="showEmptyFieldsAlert = false"
         aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -27,16 +35,20 @@
       </form>
     </div>
   </div>
+  <SiteFooter />
 </template>
+
 
 <script>
 import SiteHeader from './Header.vue'
+import SiteFooter from './Footer.vue'
 import axios from 'axios'
 
 export default {
   name: 'AddPage',
   components: {
-    SiteHeader
+    SiteHeader,
+    SiteFooter
   },
   data() {
     return {
@@ -46,12 +58,23 @@ export default {
         contact: ''
       },
       name: '',
-      showAlert: false
+      showAlert: false,
+      showEmptyFieldsAlert: false
     };
   },
+
+
+
   methods: {
     async addCampo() {
       console.warn(this.campo);
+      // Controlla se uno dei campi è vuoto
+      if (!this.campo.name || !this.campo.address || !this.campo.contact) {
+        // Mostra l'alert per campi vuoti
+        this.showEmptyFieldsAlert = true;
+        return; // Esci dalla funzione senza inviare la richiesta
+      }
+
       try {
         const result = await axios.post('http://localhost:3000/tennisField', {
           name: this.campo.name,
