@@ -49,7 +49,7 @@
           <td>
             <div class="d-flex justify-content-between align-items-center">
               <router-link :to="'/update/' + item.id"><font-awesome-icon
-                  :icon="['far', 'pen-to-square']" />Aggiorna</router-link>
+                  :icon="['far', 'pen-to-square']" />Modifica</router-link>
               <button class="btn btn-danger btn-sm rounded" @click="deleteField(item.id)">
                 <font-awesome-icon :icon="['fas', 'trash']" />
                 Elimina
