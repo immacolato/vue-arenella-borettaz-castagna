@@ -1,9 +1,9 @@
-import HomePage from './components/Home.vue'
-import SignUp from './components/SignUp.vue'
-import LoginPage from './components/Login.vue'
+import HomePage from './views/Home.vue'
+import SignUp from './views/SignUp.vue'
+import LoginPage from './views/Login.vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import AddPage from './components/Add.vue'
-import UpdatePage from './components/Update.vue'
+import AddPage from './views/Add.vue'
+import UpdatePage from './views/Update.vue'
 
 const routes = [
   {

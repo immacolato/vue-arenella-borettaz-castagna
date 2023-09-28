@@ -27,8 +27,8 @@
 </template>
     
 <script>
-import SiteHeader from './Header.vue'
-import SiteFooter from './Footer.vue'
+import SiteHeader from '../components/Header.vue'
+import SiteFooter from '../components/Footer.vue'
 import axios from 'axios'
 
 export default {
