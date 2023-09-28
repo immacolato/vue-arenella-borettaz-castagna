@@ -55,7 +55,8 @@ export default {
       campo: {
         name: '',
         address: '',
-        contact: ''
+        contact: '',
+        user_id: ''
       },
       name: '',
       showAlert: false,
@@ -76,10 +77,13 @@ export default {
       }
 
       try {
+        let user = localStorage.getItem('user-info')
+        this.id = JSON.parse(user)[0].id
         const result = await axios.post('http://localhost:3000/tennisField', {
           name: this.campo.name,
           address: this.campo.address,
-          contact: this.campo.contact
+          contact: this.campo.contact,
+          user_id: this.id
         });
         if (result.status == 201) {
           // Mostra l'alert

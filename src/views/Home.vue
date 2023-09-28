@@ -106,10 +106,23 @@ export default {
       if (!user) {
         this.$router.push({ name: 'SignUp' })
       }
-      let result = await axios.get('http://localhost:3000/tennisField')
-      console.warn(result)
-      this.tennisField = result.data
-      this.filteredTennisField = result.data
+      /*       let result = await axios.get('http://localhost:3000/tennisField')
+            console.warn(result)
+            this.tennisField = result.data
+            this.filteredTennisField = result.data */
+      const userInfo = JSON.parse(user);
+      this.id = userInfo[0].id;
+
+      try {
+        const result = await axios.get('http://localhost:3000/tennisField');
+        console.warn(result);
+        // Filtra solo i campi che hanno user_id corrispondente all'ID dell'utente nel localStorage
+        this.tennisField = result.data.filter(campo => campo.user_id === userInfo[0].id);
+        this.filteredTennisField = this.tennisField;
+      } catch (error) {
+        // Gestisci eventuali errori di caricamento dei dati
+        console.error('Errore nel caricamento dei dati dei campi:', error);
+      }
     }
   },
 

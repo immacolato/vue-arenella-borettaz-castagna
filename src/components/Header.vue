@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow">
     <button class="navbar-toggler mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" @click="toggleMobileMenu">
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon m"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -37,11 +37,9 @@ export default {
       localStorage.clear()
       this.$router.push({ name: 'LoginPage' })
     },
-    toggleMobileMenu() {
-      this.isMobileMenuOpen = !this.isMobileMenuOpen; // Inverti lo stato del menu mobile quando si clicca sul bottone del toggler
-    },
     handleResize() {
       this.isMobileMenuOpen = window.innerWidth <= 992; // Imposta isMobileMenuOpen in base alla larghezza della finestra
+      console.log(this.isMobileMenuOpen)
     }
   },
   created() {
