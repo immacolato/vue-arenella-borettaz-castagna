@@ -48,11 +48,13 @@
           <td>{{ item.address }}</td>
           <td>
             <div class="d-flex justify-content-between align-items-center">
-              <router-link :to="'/update/' + item.id"><font-awesome-icon
-                  :icon="['far', 'pen-to-square']" />Modifica</router-link>
+              <router-link :to="'/update/' + item.id">
+                <font-awesome-icon :icon="['far', 'pen-to-square']" class="fa-lg" />
+                <span class="d-none d-xl-inline-flex">Modifica</span>
+              </router-link>
               <button class="btn btn-danger btn-sm rounded" @click="deleteField(item.id)">
                 <font-awesome-icon :icon="['fas', 'trash']" />
-                Elimina
+                <span class="d-none d-xl-inline-flex">Elimina</span>
               </button>
             </div>
           </td>
