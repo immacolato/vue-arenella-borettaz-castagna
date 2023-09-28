@@ -117,46 +117,10 @@
   ],
   "tennisField": [
     {
-      "name": "Torino Pallina Verde",
-      "address": "Via del Mare 2",
-      "contact": "394019924",
-      "id": 1
-    },
-    {
-      "name": "",
-      "address": "",
-      "contact": "",
-      "id": 2
-    },
-    {
-      "name": "Montepio",
-      "address": "Via roma 5",
-      "contact": "3474611199",
-      "id": 5
-    },
-    {
-      "name": "Val Di Campi",
-      "address": "Via Ciolla 24",
-      "contact": "0293450993",
-      "id": 6
-    },
-    {
-      "name": "Val Di Campo",
-      "address": "Via Ciolla 12",
-      "contact": "0293450993",
-      "id": 7
-    },
-    {
       "name": "Val Di Camp1",
-      "address": "Via Ciolla 12",
+      "address": "Via Ciolla 14",
       "contact": "029345023",
       "id": 8
-    },
-    {
-      "name": "Val Di Campo",
-      "address": "Via Ciolla  222",
-      "contact": "0293450992",
-      "id": 9
     },
     {
       "name": "Test1",

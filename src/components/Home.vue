@@ -37,7 +37,7 @@
           <th scope="col">Nome</th>
           <th scope="col">Contatti</th>
           <th scope="col">Indirizzo</th>
-          <th scope="col">Azioni</th>
+          <th scope="col" class="col-2">Azioni</th>
         </tr>
       </thead>
       <tbody class="table-group-divider">
@@ -47,8 +47,14 @@
           <td>{{ item.contact }}</td>
           <td>{{ item.address }}</td>
           <td>
-            <router-link :to="'/update/' + item.id">Aggiorna</router-link>
-            <button v-on:click="deleteField(item.id)">Elimina</button>
+            <div class="d-flex justify-content-between align-items-center">
+              <router-link :to="'/update/' + item.id"><font-awesome-icon
+                  :icon="['far', 'pen-to-square']" />Aggiorna</router-link>
+              <button class="btn btn-danger btn-sm rounded" @click="deleteField(item.id)">
+                <font-awesome-icon :icon="['fas', 'trash']" />
+                Elimina
+              </button>
+            </div>
           </td>
         </tr>
       </tbody>
@@ -86,10 +92,10 @@ export default {
       });
     },
     async deleteField(id) {
-      let result = await axios.delete('http://localhost:3000/tennisField' + id)
+      let result = await axios.delete('http://localhost:3000/tennisField/' + id)
       console.warn(result)
-      if (result.status === 200) {
-        this.loadData()
+      if (result.status == 200) {
+        this.loadData();
       }
     },
     async loadData() {
@@ -106,7 +112,7 @@ export default {
   },
 
   async mounted() {
-    this.loadData()
+    this.loadData();
   }
 }
 </script>
