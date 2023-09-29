@@ -106,10 +106,7 @@ export default {
       if (!user) {
         this.$router.push({ name: 'SignUp' })
       }
-      /*       let result = await axios.get('http://localhost:3000/tennisField')
-            console.warn(result)
-            this.tennisField = result.data
-            this.filteredTennisField = result.data */
+
       const userInfo = JSON.parse(user);
       this.id = userInfo[0].id;
 

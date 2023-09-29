@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './routers'
+import 'bootstrap/dist/css/bootstrap.css'
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
 /* import font awesome icon component */
@@ -13,8 +14,7 @@ import { faPenToSquare } from '@fortawesome/free-regular-svg-icons'
 library.add(faUserSecret, faTrash, faPenToSquare)
 createApp(App).use(router).mount('#app')
 
-import 'bootstrap/dist/css/bootstrap.css'
-
+router.push({ name: 'LoginPage' })
 const app = createApp(App).component('font-awesome-icon', FontAwesomeIcon)
 app.use(router)
 
