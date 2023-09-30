@@ -7,12 +7,15 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { faPenToSquare } from '@fortawesome/free-regular-svg-icons'
+import { createStore } from 'vuex'
+import store from './store'
 
 // Aggiungi le icone alla libreria
 library.add(faUserSecret, faTrash, faPenToSquare)
 
 const app = createApp(App)
 
+app.use(store)
 // Usa il router nell'app
 app.use(router)
 

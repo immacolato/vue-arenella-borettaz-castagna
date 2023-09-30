@@ -1,7 +1,7 @@
 <template>
   <SiteHeader />
   <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner" style="max-height: 340px;">
+    <div class="carousel-inner" style="max-height: 340px">
       <div class="carousel-item active">
         <img src="..//assets/carosello1.jpg" class="d-block w-100" alt="..." />
       </div>
@@ -12,22 +12,40 @@
         <img src="..//assets/carosello3.jpg" class="d-block w-100" alt="..." />
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide="prev"
+    >
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide="next"
+    >
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
+      <span class="visually-hidden">Next </span>
     </button>
   </div>
 
-  <h1 class="text-center mt-2">Ciao {{ name }}, benvenuta/o in Tennis Hub</h1>
+  <h1 class="text-center mt-2">Ciao {{ name }}, benvenuta/o in Tennis Hub count: {{ count }}</h1>
+  <button @click="increment">Increment</button>
+  <button @click="decrement">Decrement</button>
   <div class="container">
     <div class="mb-3 mt-3">
       <label for="searchTerm" class="form-label">Cerca:</label>
-      <input style="max-width: 320px" type="text" class="form-control" id="searchTerm" v-model="searchTerm"
-        @input="performSearch" />
+      <input
+        style="max-width: 320px"
+        type="text"
+        class="form-control"
+        id="searchTerm"
+        v-model="searchTerm"
+        @input="performSearch"
+      />
     </div>
 
     <table class="mt-5 mb-5 table table-bordered table-hover rounded overflow-hidden">
@@ -68,9 +86,16 @@
 <script>
 import SiteHeader from '../components/Header.vue'
 import SiteFooter from '../components/Footer.vue'
+
 import axios from 'axios'
 export default {
   name: 'HomePage',
+  computed: {
+    count() {
+      return this.$store.state.count
+    }
+  },
+
   data() {
     return {
       name: '',
@@ -85,19 +110,28 @@ export default {
   },
 
   methods: {
+    increment() {
+      console.log('ofnweoifnewo')
+      this.$store.commit('increment')
+    },
+    decrement() {
+      this.$store.commit('decrement')
+    },
     performSearch() {
       // Filtra l'array filteredTennisField in base al valore di searchTerm
-      this.filteredTennisField = this.tennisField.filter(item => {
-        return item.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+      this.filteredTennisField = this.tennisField.filter((item) => {
+        return (
+          item.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
           item.contact.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-          item.address.toLowerCase().includes(this.searchTerm.toLowerCase());
-      });
+          item.address.toLowerCase().includes(this.searchTerm.toLowerCase())
+        )
+      })
     },
     async deleteField(id) {
       let result = await axios.delete('http://localhost:3000/tennisField/' + id)
       console.warn(result)
       if (result.status == 200) {
-        this.loadData();
+        this.loadData()
       }
     },
     async loadData() {
@@ -107,24 +141,24 @@ export default {
         this.$router.push({ name: 'SignUp' })
       }
 
-      const userInfo = JSON.parse(user);
-      this.id = userInfo[0].id;
+      const userInfo = JSON.parse(user)
+      this.id = userInfo[0].id
 
       try {
-        const result = await axios.get('http://localhost:3000/tennisField');
-        console.warn(result);
+        const result = await axios.get('http://localhost:3000/tennisField')
+        console.warn(result)
         // Filtra solo i campi che hanno user_id corrispondente all'ID dell'utente nel localStorage
-        this.tennisField = result.data.filter(campo => campo.user_id === userInfo[0].id);
-        this.filteredTennisField = this.tennisField;
+        this.tennisField = result.data.filter((campo) => campo.user_id === userInfo[0].id)
+        this.filteredTennisField = this.tennisField
       } catch (error) {
         // Gestisci eventuali errori di caricamento dei dati
-        console.error('Errore nel caricamento dei dati dei campi:', error);
+        console.error('Errore nel caricamento dei dati dei campi:', error)
       }
     }
   },
 
   async mounted() {
-    this.loadData();
+    this.loadData()
   }
 }
 </script>
