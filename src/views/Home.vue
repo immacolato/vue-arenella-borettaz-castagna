@@ -1,7 +1,7 @@
 <template>
   <SiteHeader />
   <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner" style="max-height: 340px">
+    <div class="carousel-inner" style="max-height: 300px">
       <div class="carousel-item active">
         <img src="..//assets/carosello1.jpg" class="d-block w-100" alt="..." />
       </div>

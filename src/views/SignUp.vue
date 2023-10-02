@@ -4,8 +4,11 @@
       <img class="logo mt-2" src="../assets/logoTennis.png" alt="Tennis Logo" />
       <h1 class="mt-2 display-4">TENNIS HUB</h1>
       <h6 class="lead">Il gestionale per i tuoi campi da tennis!</h6>
-      <a class="btn btn-success btn-sm" href="#" role="button">Scopri di più!</a>
-      <div>
+      
+      <router-link to="/ScopriDiPiu"
+                            class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Scopri di più</router-link>
+      
+                            <div>
         <h2 class="mt-5">Effettua l'iscrizione:</h2>
       </div>
       <form @submit.prevent="signUp" class="register col-md-6 mx-auto bg-success text-white rounded shadow-lg"

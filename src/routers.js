@@ -4,6 +4,7 @@ import LoginPage from './views/Login.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import AddPage from './views/Add.vue'
 import UpdatePage from './views/Update.vue'
+import ScopriDiPiu from './views/ScopriDiPiu.vue'
 
 const routes = [
   {
@@ -30,7 +31,12 @@ const routes = [
     name: 'UpdatePage',
     component: UpdatePage,
     path: '/update/:id'
-  }
+  },
+  {
+    name: 'ScopriDiPiu',
+    component: ScopriDiPiu,
+    path: '/scopridipiu'
+  },
 ]
 
 const router = createRouter({
