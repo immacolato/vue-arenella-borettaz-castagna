@@ -33,7 +33,13 @@
   </div>
 
   <h1 class="text-center mt-2">Ciao {{ name }}, benvenuta/o in Tennis Hub</h1>
-  <h3 class="text-center mt-2">Hai al momento {{ numberOfFields }} campi disponibili</h3>
+  <h3 v-if="numberOfFields == 0" class="text-center mt-2">
+    Hai al momento {{ numberOfFields }} campi disponibili
+  </h3>
+  <h3 v-else-if="numberOfFields == 1" class="text-center mt-2">
+    Hai al momento {{ numberOfFields }} campo disponibili
+  </h3>
+  <h3 v-else class="text-center mt-2">Hai al momento {{ numberOfFields }} campi disponibili</h3>
   <!--<button @click="increment">Increment</button>-->
   <!--<button @click="decrement">Decrement</button>-->
   <div class="container">
@@ -138,22 +144,21 @@ export default {
     },
     async loadData() {
       let user = localStorage.getItem('user-info')
-      this.name = JSON.parse(user)[0].name //[0] aggiunto perchè nel db gli utenti sono dentro un array e non un oggetto
+      this.name = JSON.parse(user).name //[0] aggiunto perchè nel db gli utenti sono dentro un array e non un oggetto
       if (!user) {
         this.$router.push({ name: 'SignUp' })
       }
 
       const userInfo = JSON.parse(user)
-      this.id = userInfo[0].id
+      this.id = userInfo.id
 
       try {
         const result = await axios.get('http://localhost:3000/tennisField')
         console.warn(result)
         // Filtra solo i campi che hanno user_id corrispondente all'ID dell'utente nel localStorage
-        this.tennisField = result.data.filter((campo) => campo.user_id === userInfo[0].id)
+        this.tennisField = result.data.filter((campo) => campo.user_id === userInfo.id)
         this.filteredTennisField = this.tennisField
         this.numberOfFields = this.filteredTennisField.length
-        console.log(this.numberOfFields)
       } catch (error) {
         // Gestisci eventuali errori di caricamento dei dati
         console.error('Errore nel caricamento dei dati dei campi:', error)

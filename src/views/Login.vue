@@ -34,53 +34,51 @@
                 </div>
             </div>
         </div>
-    </div>
-    <SiteFooter />
+      </div>
+  <SiteFooter />
 </template>
 
 <script>
 import axios from 'axios'
 export default {
-    name: 'LoginPage',
-    data() {
-        return {
-            email: '',
-            password: ''
-        }
-    },
-    methods: {
-        async login() {
-
-            if (!this.email || !this.password) {
-                // Mostra un messaggio di errore o gestisci l'errore come preferisci
-                alert("Per favore, compila tutti i campi.");
-                return;
-            }
-            // Verifica il formato dell'indirizzo email usando una regex
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(this.email)) {
-                alert("Inserisci un indirizzo email valido.");
-                return;
-            }
-
-            let result = await axios.get(
-                `http://localhost:3000/users?email=${this.email}&password=${this.password}`
-            )
-
-            if (result.status == 200 && result.data.length > 0) {
-                localStorage.setItem("user-info", JSON.stringify(result.data))
-                this.$router.push({ name: 'HomePage' })
-            }
-            else {
-                alert("Questo account non è registrato. Si prega di effettuare la registrazione")
-            }
-            console.warn(result)
-        }
-    },
-    mounted() {
-        let user = localStorage.getItem('user-info');
-        if (user)
-            this.$router.push({ name: 'HomePage' })
+  name: 'LoginPage',
+  data() {
+    return {
+      email: '',
+      password: ''
     }
+  },
+  methods: {
+    async login() {
+      if (!this.email || !this.password) {
+        // Mostra un messaggio di errore o gestisci l'errore come preferisci
+        alert('Per favore, compila tutti i campi.')
+        return
+      }
+      // Verifica il formato dell'indirizzo email usando una regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      if (!emailRegex.test(this.email)) {
+        alert('Inserisci un indirizzo email valido.')
+        return
+      }
+
+      let result = await axios.get(
+        `http://localhost:3000/users?email=${this.email}&password=${this.password}`
+      )
+
+      if (result.status == 200 && result.data.length > 0) {
+        let user = result.data[0]
+        localStorage.setItem('user-info', JSON.stringify(user))
+        this.$router.push({ name: 'HomePage' })
+      } else {
+        alert('Questo account non è registrato. Si prega di effettuare la registrazione')
+      }
+      console.warn(result)
+    }
+  },
+  mounted() {
+    let user = localStorage.getItem('user-info')
+    if (user) this.$router.push({ name: 'HomePage' })
+  }
 }
 </script>

@@ -12,7 +12,7 @@
             la gestione del tuo centro sportivo, offrendoti una soluzione completa e intuitiva.
           </p>
           <p>
-            Con Tennis Hub, potrai gestire la tua attività in modo 
+            Con Tennis Hub, potrai gestire prenotazioni, orari, membri del club e molto altro, tutto in modo 
             completamente gratuito. Offriamo un sistema flessibile che si adatta alle tue esigenze specifiche, 
             indipendentemente dalle dimensioni della struttura che gestisci. Tennis Hub è la soluzione perfetta per te.
           </p>
