@@ -6,30 +6,62 @@
     <!-- Alert personalizzato Bootstrap -->
     <div v-if="showAlert" class="text-center alert alert-success alert-dismissible" role="alert">
       <strong>Messaggio:</strong> Campo aggiunto con successo!
-      <button type="button" class="close rounded btn btn-sm btn-outline-dark ms-3" @click="showAlert = false"
-        aria-label="Close">
+      <button
+        type="button"
+        class="close rounded btn btn-sm btn-outline-dark ms-3"
+        @click="showAlert = false"
+        aria-label="Close"
+      >
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
 
-    <div v-if="showEmptyFieldsAlert" class="text-center alert alert-danger alert-dismissible" role="alert">
+    <div
+      v-if="showEmptyFieldsAlert"
+      class="text-center alert alert-danger alert-dismissible"
+      role="alert"
+    >
       <strong>Errore:</strong> Assicurati di compilare tutti i campi prima di aggiungere il campo!
-      <button type="button" class="close rounded btn btn-sm btn-outline-dark ms-3" @click="showEmptyFieldsAlert = false"
-        aria-label="Close">
+      <button
+        type="button"
+        class="close rounded btn btn-sm btn-outline-dark ms-3"
+        @click="showEmptyFieldsAlert = false"
+        aria-label="Close"
+      >
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-
 
     <div class="mt-5 container" style="max-width: 678px; margin: 0 auto">
       <form class="row g-3">
-        <input class="form-control" type="text" name="name" placeholder="Inserisci il nome del campo"
-          v-model="campo.name" />
-        <input class="form-control" type="text" name="contact" placeholder="Inserisci contatto" v-model="campo.contact" />
-        <input class="form-control" type="text" name="address" placeholder="Inserisci l'indirizzo del campo"
-          v-model="campo.address" />
-        <button class="mt-3 btn btn-success shadow-sm" type="button" @click="addCampo"
-          style="max-width: 420px; margin: 0 auto">
+        <input
+          class="form-control"
+          type="text"
+          name="name"
+          placeholder="Inserisci il nome del campo"
+          v-model="campo.name"
+        />
+        <input
+          class="form-control"
+          type="tel"
+          name="contact"
+          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          placeholder="Inserisci contatto"
+          v-model="campo.contact"
+        />
+        <input
+          class="form-control"
+          type="text"
+          name="address"
+          placeholder="Inserisci l'indirizzo del campo"
+          v-model="campo.address"
+        />
+        <button
+          class="mt-3 btn btn-success shadow-sm"
+          type="button"
+          @click="addCampo"
+          style="max-width: 420px; margin: 0 auto"
+        >
           Aggiungi nuovo campo
         </button>
       </form>
@@ -37,7 +69,6 @@
   </div>
   <SiteFooter />
 </template>
-
 
 <script>
 import SiteHeader from '../components/Header.vue'
@@ -61,60 +92,69 @@ export default {
       name: '',
       showAlert: false,
       showEmptyFieldsAlert: false
-    };
+    }
   },
 
-
-
   methods: {
+    validatePhoneNumber(phoneNumber) {
+      var RE = /^[\d\.\-]+$/
+      return RE.test(phoneNumber)
+    },
+
     async addCampo() {
-      console.warn(this.campo);
+      console.warn(this.campo)
       // Controlla se uno dei campi è vuoto
       if (!this.campo.name || !this.campo.address || !this.campo.contact) {
         // Mostra l'alert per campi vuoti
-        this.showEmptyFieldsAlert = true;
-        return; // Esci dalla funzione senza inviare la richiesta
+        this.showEmptyFieldsAlert = true
+        return // Esci dalla funzione senza inviare la richiesta
       }
 
       try {
         let user = localStorage.getItem('user-info')
-        this.id = JSON.parse(user)[0].id
+        this.id = JSON.parse(user).id
+
+        // validate phoneNumber
+        if (!this.validatePhoneNumber(this.campo.contact)) {
+          alert('Inserisci un numero di telefono valido')
+          return
+        }
+
         const result = await axios.post('http://localhost:3000/tennisField', {
           name: this.campo.name,
           address: this.campo.address,
           contact: this.campo.contact,
           user_id: this.id
-        });
+        })
         if (result.status == 201) {
           // Mostra l'alert
-          this.showAlert = true;
+          this.showAlert = true
           // Nascondi l'alert automaticamente dopo 3 secondi
-          setTimeout(this.hideAlert, 3000);
+          setTimeout(this.hideAlert, 3000)
 
           // Svuota il form
-          this.campo.name = '';
-          this.campo.address = '';
-          this.campo.contact = '';
-
+          this.campo.name = ''
+          this.campo.address = ''
+          this.campo.contact = ''
         } else {
-          alert('Si è verificato un errore durante l\'aggiunta del campo.');
+          alert("Si è verificato un errore durante l'aggiunta del campo.")
         }
-        console.warn('result', result);
+        console.warn('result', result)
       } catch (error) {
-        console.error('Errore durante la richiesta:', error);
-        alert('Si è verificato un errore durante l\'aggiunta del campo.');
+        console.error('Errore durante la richiesta:', error)
+        alert("Si è verificato un errore durante l'aggiunta del campo.")
       }
     }
   },
   async mounted() {
     let user = localStorage.getItem('user-info')
-    this.name = JSON.parse(user)[0].name //[0] aggiunto perchè nel db gli utenti sono dentro un array e non un oggetto
+    this.name = JSON.parse(user).name //[0] aggiunto perchè nel db gli utenti sono dentro un array e non un oggetto
     if (!user) {
       this.$router.push({ name: 'SignUp' })
     }
   },
   hideAlert() {
-    this.showAlert = false;
+    this.showAlert = false
   }
 }
 </script>
