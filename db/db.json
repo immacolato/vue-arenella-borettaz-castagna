@@ -193,11 +193,18 @@
       "id": 20
     },
     {
-      "name": "immacolato",
-      "address": "catania",
-      "contact": "2039509",
-      "user_id": 3,
-      "id": 21
+      "name": "Mic",
+      "address": "Mic",
+      "contact": "Mic",
+      "user_id": 18,
+      "id": 22
+    },
+    {
+      "name": "zia",
+      "address": "zia",
+      "contact": "xzai",
+      "user_id": 18,
+      "id": 23
     }
   ]
 }

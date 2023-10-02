@@ -32,9 +32,10 @@
     </button>
   </div>
 
-  <h1 class="text-center mt-2">Ciao {{ name }}, benvenuta/o in Tennis Hub count: {{ count }}</h1>
-  <button @click="increment">Increment</button>
-  <button @click="decrement">Decrement</button>
+  <h1 class="text-center mt-2">Ciao {{ name }}, benvenuta/o in Tennis Hub</h1>
+  <h3 class="text-center mt-2">Hai al momento {{ numberOfFields }} campi disponibili</h3>
+  <!--<button @click="increment">Increment</button>-->
+  <!--<button @click="decrement">Decrement</button>-->
   <div class="container">
     <div class="mb-3 mt-3">
       <label for="searchTerm" class="form-label">Cerca:</label>
@@ -101,7 +102,8 @@ export default {
       name: '',
       tennisField: [],
       searchTerm: '',
-      filteredTennisField: []
+      filteredTennisField: [],
+      numberOfFields: 0
     }
   },
   components: {
@@ -150,6 +152,8 @@ export default {
         // Filtra solo i campi che hanno user_id corrispondente all'ID dell'utente nel localStorage
         this.tennisField = result.data.filter((campo) => campo.user_id === userInfo[0].id)
         this.filteredTennisField = this.tennisField
+        this.numberOfFields = this.filteredTennisField.length
+        console.log(this.numberOfFields)
       } catch (error) {
         // Gestisci eventuali errori di caricamento dei dati
         console.error('Errore nel caricamento dei dati dei campi:', error)
