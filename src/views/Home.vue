@@ -12,21 +12,11 @@
         <img src="..//assets/carosello3.jpg" class="d-block w-100" alt="..." />
       </div>
     </div>
-    <button
-      class="carousel-control-prev"
-      type="button"
-      data-bs-target="#carouselExampleAutoplaying"
-      data-bs-slide="prev"
-    >
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-bs-target="#carouselExampleAutoplaying"
-      data-bs-slide="next"
-    >
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next </span>
     </button>
@@ -37,7 +27,7 @@
     Hai al momento {{ numberOfFields }} campi disponibili
   </h3>
   <h3 v-else-if="numberOfFields == 1" class="text-center mt-2">
-    Hai al momento {{ numberOfFields }} campo disponibili
+    Hai al momento {{ numberOfFields }} campo disponibile
   </h3>
   <h3 v-else class="text-center mt-2">Hai al momento {{ numberOfFields }} campi disponibili</h3>
   <!--<button @click="increment">Increment</button>-->
@@ -45,14 +35,8 @@
   <div class="container">
     <div class="mb-3 mt-3">
       <label for="searchTerm" class="form-label">Cerca:</label>
-      <input
-        style="max-width: 320px"
-        type="text"
-        class="form-control"
-        id="searchTerm"
-        v-model="searchTerm"
-        @input="performSearch"
-      />
+      <input style="max-width: 320px" type="text" class="form-control" id="searchTerm" v-model="searchTerm"
+        @input="performSearch" />
     </div>
 
     <table class="mt-5 mb-5 table table-bordered table-hover rounded overflow-hidden">
