@@ -47,8 +47,8 @@
           permettendoti di concentrarti su ciò che ami di più: il tennis.
         </p>
         <router-link to="/login"
-          class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Effettua il
-          login/iscriviti</router-link>
+          class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Entra a far parte
+          di TennisHub!</router-link>
       </div>
       <div class="col-md-5 d-md-block">
         <div class="card mx-auto mb-3" style="width: 20rem">
