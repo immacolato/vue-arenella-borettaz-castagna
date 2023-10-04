@@ -1,6 +1,11 @@
 <template>
-  <header>
-    <h1 class="text-center mt-4 mb-5">Scopri di più su TENNIS HUB</h1>
+  <header class="text-center mb-5">
+    <h1 class="mt-4">Scopri di più su TENNIS HUB</h1>
+
+    <router-link to="/login"
+      class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Torna
+      indietro</router-link>
+
 
   </header>
   <div class="container">
@@ -41,6 +46,9 @@
           liberandoti dallo stress e
           permettendoti di concentrarti su ciò che ami di più: il tennis.
         </p>
+        <router-link to="/login"
+          class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Effettua il
+          login/iscriviti</router-link>
       </div>
       <div class="col-md-5 d-md-block">
         <div class="card mx-auto mb-3" style="width: 20rem">
