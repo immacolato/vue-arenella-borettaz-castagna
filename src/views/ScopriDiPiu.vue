@@ -1,14 +1,14 @@
 <template>
   <header>
-    <h1 class="text-center mt-4 mb-4">Scopri di più su TENNIS HUB</h1>
+    <h1 class="text-center mt-4 mb-5">Scopri di più su TENNIS HUB</h1>
 
   </header>
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-sm-12">
+      <div class="mx-auto col-md-6 col-sm-12">
 
         <p>
-          Benvenuto su Tennis Hub, il miglior gestionale per i campi da tennis. Siamo qui per semplificare
+          Benvenuto su <b>Tennis Hub</b>, il miglior gestionale per i campi da tennis. Siamo qui per semplificare
           la gestione del tuo centro sportivo, offrendoti una soluzione completa e intuitiva.
         </p>
         <p>
@@ -36,18 +36,20 @@
           La tua attività per il tennis merita il miglior supporto possibile, ed è esattamente ciò che offriamo con Tennis
           Hub.
         </p>
-        <p>
+        <p style="font-weight: bolder;">
           Unisciti a noi oggi stesso e scopri come Tennis Hub può trasformare la gestione del tuo centro sportivo,
           liberandoti dallo stress e
           permettendoti di concentrarti su ciò che ami di più: il tennis.
         </p>
       </div>
-      <div class="col-md-4 d-md-block">
-        <div class="card mx-auto mb-3" style="width: 18rem">
-          <img src="..//assets/mockup smartphone.png" class="card-img-top" />
+      <div class="col-md-5 d-md-block">
+        <div class="card mx-auto mb-3" style="width: 20rem">
+          <img src="..//assets/mockup smartphone.png" alt="Interfaccia mobile di TennisHub"
+            title="Interfaccia mobile di TennisHub" class="rounded card-img-top" />
         </div>
-        <div class="card mx-auto mb-2" style="width: 18rem">
-          <img src="..//assets/mockup pc.png" class="card-img-top" />
+        <div class="card mx-auto mb-5" style="width: 20rem">
+          <img src="..//assets/mockup pc.png" alt="Interfaccia di TennisHub" title="Interfaccia desktop di TennisHub"
+            class="rounded card-img-top" />
         </div>
       </div>
     </div>
@@ -60,4 +62,3 @@ export default {
   name: "ScopriDiPiu",
 };
 </script>
-  
