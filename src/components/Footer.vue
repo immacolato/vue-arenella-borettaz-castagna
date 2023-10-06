@@ -4,7 +4,7 @@
   <div>
     <footer class="text-center text-lg-start bg-success">
       <div class="container py-5">
-        <div class="row justify-content-center align-items-center">
+        <div class="row justify-content-center align-items-center mail-support">
           <div class="col-lg-12">
             <a href="mailto:assistenza@tennishub.com" class="text-white d-flex flex-column align-items-center">
               <font-awesome-icon :icon="['far', 'envelope']" size="2xl" />
@@ -25,3 +25,25 @@ export default {
   name: 'SiteFooter'
 }
 </script>
+
+<style>
+.mail-support a {
+  transition:
+    transform 0.3s,
+    padding 0.3s;
+}
+
+.mail-support a:hover {
+  transform: scale(1.2);
+}
+
+.mail-support a:not(:hover) {
+  transition:
+    transform 0.3s,
+    padding 0.3s;
+}
+
+.mail-support a:not(:hover):hover {
+  transform: scale(1);
+}
+</style>
