@@ -38,38 +38,39 @@
       <input style="max-width: 320px" type="text" class="form-control" id="searchTerm" v-model="searchTerm"
         @input="performSearch" />
     </div>
-
-    <table class="mt-5 mb-5 table table-bordered table-hover rounded overflow-hidden">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Nome</th>
-          <th scope="col">Contatti</th>
-          <th scope="col">Indirizzo</th>
-          <th scope="col" class="col-2">Azioni</th>
-        </tr>
-      </thead>
-      <tbody class="table-group-divider">
-        <tr v-for="item in filteredTennisField" :key="item.id">
-          <th scope="row">{{ item.id }}</th>
-          <td>{{ item.name }}</td>
-          <td>{{ item.contact }}</td>
-          <td>{{ item.address }}</td>
-          <td>
-            <div class="d-flex justify-content-between align-items-center">
-              <router-link :to="'/update/' + item.id">
-                <font-awesome-icon :icon="['far', 'pen-to-square']" class="fa-lg" />
-                <span class="d-none d-xl-inline-flex">Modifica</span>
-              </router-link>
-              <button class="btn btn-danger btn-sm rounded" @click="deleteField(item.id)">
-                <font-awesome-icon :icon="['fas', 'trash']" />
-                <span class="d-none d-xl-inline-flex">Elimina</span>
-              </button>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="mt-5 mb-5 table table-bordered table-hover rounded overflow-hidden ">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Contatti</th>
+            <th scope="col">Indirizzo</th>
+            <th scope="col" class="col-2">Azioni</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr v-for="item in filteredTennisField" :key="item.id">
+            <th scope="row">{{ item.id }}</th>
+            <td>{{ item.name }}</td>
+            <td>{{ item.contact }}</td>
+            <td>{{ item.address }}</td>
+            <td>
+              <div class="d-flex justify-content-between align-items-center">
+                <router-link :to="'/update/' + item.id">
+                  <font-awesome-icon :icon="['far', 'pen-to-square']" class="fa-lg" />
+                  <span class="d-none d-xl-inline-flex">Modifica</span>
+                </router-link>
+                <button class="btn btn-danger btn-sm rounded" @click="deleteField(item.id)">
+                  <font-awesome-icon :icon="['fas', 'trash']" />
+                  <span class="d-none d-xl-inline-flex">Elimina</span>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
   <SiteFooter />
 </template>
