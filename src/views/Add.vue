@@ -6,30 +6,65 @@
     <!-- Alert personalizzato Bootstrap -->
     <div v-if="showAlert" class="text-center alert alert-success alert-dismissible" role="alert">
       <strong>Messaggio:</strong> Campo aggiunto con successo!
-      <button type="button" class="close rounded btn btn-sm btn-outline-dark ms-3" @click="showAlert = false"
-        aria-label="Close">
+      <button
+        type="button"
+        class="close rounded btn btn-sm btn-outline-dark ms-3"
+        @click="showAlert = false"
+        aria-label="Close"
+      >
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
 
-    <div v-if="showEmptyFieldsAlert" class="text-center alert alert-danger alert-dismissible" role="alert">
+    <div
+      v-if="showEmptyFieldsAlert"
+      class="text-center alert alert-danger alert-dismissible"
+      role="alert"
+    >
       <strong>Errore:</strong> Assicurati di compilare tutti i campi prima di aggiungere il campo!
-      <button type="button" class="close rounded btn btn-sm btn-outline-dark ms-3" @click="showEmptyFieldsAlert = false"
-        aria-label="Close">
+      <button
+        type="button"
+        class="close rounded btn btn-sm btn-outline-dark ms-3"
+        @click="showEmptyFieldsAlert = false"
+        aria-label="Close"
+      >
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
 
     <div class="mt-5 container row align-items-center" style="max-width: 678px; margin: 0 auto">
-      <form class="row g-4">
-        <input class="form-control" type="text" name="name" placeholder="Inserisci il nome del campo"
-          v-model="campo.name" />
-        <input class="form-control" type="tel" name="contact" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-          placeholder="Inserisci contatto" v-model="campo.contact" />
-        <input class="form-control" type="text" name="address" placeholder="Inserisci l'indirizzo del campo"
-          v-model="campo.address" />
-        <button class="mt-4 btn btn-success shadow-sm" type="button" @click="addCampo"
-          style="max-width: 420px; margin: 0 auto;">
+      <form class="row g-2">
+        <h5 class="mt-2">Nome Campo:</h5>
+        <input
+          class="form-control"
+          type="text"
+          name="name"
+          placeholder="Inserisci il nome del campo..."
+          v-model="campo.name"
+        />
+        <h5 class="mt-3">Contatto:</h5>
+        <input
+          class="form-control"
+          type="tel"
+          name="contact"
+          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          placeholder="Inserisci contatto..."
+          v-model="campo.contact"
+        />
+        <h5 class="mt-3">Indirizzo:</h5>
+        <input
+          class="form-control"
+          type="text"
+          name="address"
+          placeholder="Inserisci l'indirizzo del campo..."
+          v-model="campo.address"
+        />
+        <button
+          class="mt-4 btn btn-success shadow-sm"
+          type="button"
+          @click="addCampo"
+          style="max-width: 420px; margin: 0 auto"
+        >
           Aggiungi nuovo campo
         </button>
       </form>
