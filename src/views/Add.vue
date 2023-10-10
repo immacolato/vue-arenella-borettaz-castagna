@@ -1,7 +1,7 @@
 <template>
-  <div style="margin-bottom: 120px">
+  <div style="margin-bottom: 340px">
     <SiteHeader />
-    <h1 class="text-center mt-5">Ciao {{ name }}, benvenuta/o nella pagina di aggiunta campi</h1>
+    <h1 class="text-center mt-5 mb-5">Ciao {{ name }}, benvenuta/o nella pagina di aggiunta campi</h1>
 
     <!-- Alert personalizzato Bootstrap -->
     <div v-if="showAlert" class="text-center alert alert-success alert-dismissible" role="alert">
@@ -28,8 +28,8 @@
           placeholder="Inserisci contatto" v-model="campo.contact" />
         <input class="form-control" type="text" name="address" placeholder="Inserisci l'indirizzo del campo"
           v-model="campo.address" />
-        <button class="mt-3 btn btn-success shadow-sm" type="button" @click="addCampo"
-          style="max-width: 420px; margin: 0 auto">
+        <button class="mt-4 btn btn-success shadow-sm" type="button" @click="addCampo"
+          style="max-width: 420px; margin: 0 auto;">
           Aggiungi nuovo campo
         </button>
       </form>
