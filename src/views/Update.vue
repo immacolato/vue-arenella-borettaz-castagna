@@ -109,7 +109,7 @@ export default {
   },
   async mounted() {
     let user = localStorage.getItem('user-info')
-    this.name = JSON.parse(user).name //[0] aggiunto perchè nel db gli utenti sono dentro un array e non un oggetto
+    this.name = JSON.parse(user).name
     if (!user) {
       this.$router.push({ name: 'SignUp' })
     }

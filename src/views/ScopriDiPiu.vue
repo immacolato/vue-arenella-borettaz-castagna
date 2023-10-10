@@ -50,7 +50,7 @@
           class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Entra a far parte
           di TennisHub!</router-link>
       </div>
-      <div class="col-md-5 d-md-block">
+      <div class="col-md-5 mt-3 d-md-block">
         <div class="card mx-auto mb-3" style="width: 20rem">
           <img src="..//assets/mockup smartphone.png" alt="Interfaccia mobile di TennisHub"
             title="Interfaccia mobile di TennisHub" class="rounded card-img-top" />
