@@ -4,8 +4,12 @@
 
   <div v-if="showAlert" class="text-center alert alert-success alert-dismissible" role="alert">
     <strong>Messaggio:</strong> Campo modificato con successo!
-    <button type="button" class="close rounded btn btn-sm btn-outline-dark ms-3" @click="showAlert = false"
-      aria-label="Close">
+    <button
+      type="button"
+      class="close rounded btn btn-sm btn-outline-dark ms-3"
+      @click="showAlert = false"
+      aria-label="Close"
+    >
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -13,23 +17,45 @@
   <div class="mt-5 container" style="max-width: 678px; margin: 0 auto; margin-bottom: 120px">
     <form class="row g-2">
       <h5 class="mt-2">Nome Campo:</h5>
-      <input class="form-control" type="text" name="name" placeholder="Inserisci il nome del campo..."
-        v-model="campo.name" />
+      <input
+        class="form-control"
+        type="text"
+        name="name"
+        placeholder="Inserisci il nome del campo..."
+        v-model="campo.name"
+      />
       <h5 class="mt-3">Contatto:</h5>
-      <input class="form-control" type="text" name="contact" placeholder="Inserisci contatto..."
-        v-model="campo.contact" />
+      <input
+        class="form-control"
+        type="text"
+        name="contact"
+        placeholder="Inserisci contatto..."
+        v-model="campo.contact"
+      />
       <h5 class="mt-3">Indirizzo:</h5>
-      <input class="form-control" type="text" name="address" placeholder="Inserisci l'indirizzo del campo..."
-        v-model="campo.address" />
-      <button class="mt-3 custom-mb btn btn-success shadow-sm" type="button" v-on:click="aggiornaCampo"
-        style="max-width: 420px; margin: 0 auto">
+      <input
+        class="form-control"
+        type="text"
+        name="address"
+        placeholder="Inserisci l'indirizzo del campo..."
+        v-model="campo.address"
+      />
+      <button
+        class="mt-3 btn btn-success shadow-sm"
+        type="button"
+        v-on:click="aggiornaCampo"
+        style="max-width: 420px; margin: 0 auto"
+      >
         Modifica campo
       </button>
-
-      <!--       <button class="btn btn-danger btn-sm rounded" @click="deleteField(item.id)">
+      <button
+        class="btn custom-mb mt-3 btn-danger btn-sm rounded"
+        @click="deleteField(this.$route.params.id)"
+        style="max-width: 420px; margin: 0 auto"
+      >
         <font-awesome-icon :icon="['fas', 'trash']" />
-        <span class="d-none d-xl-inline-flex">Elimina</span>
-      </button> -->
+        <span class="d-none d-xl-inline-flex"> Elimina</span>
+      </button>
     </form>
   </div>
   <SiteFooter />
@@ -99,15 +125,39 @@ export default {
         alert('Si è verificato un errore durante la modifica del campo.')
       }
     },
-    /*     async deleteField(id) {
-          let result = await axios.delete('http://localhost:3000/tennisField/' + id)
-          console.warn(result)
-          if (result.status == 200) {
-            this.loadData()
-          }
-        } */
+    async deleteField(id) {
+      let result = await axios.delete('http://localhost:3000/tennisField/' + id)
+      console.warn(result)
+      if (result.status == 200) {
+        this.loadData()
+      }
+    },
+    async loadData() {
+      let user = localStorage.getItem('user-info')
+      this.name = JSON.parse(user).name
+      if (!user) {
+        this.$router.push({ name: 'SignUp' })
+      }
+
+      const userInfo = JSON.parse(user)
+      this.id = userInfo.id
+
+      try {
+        const result = await axios.get('http://localhost:3000/tennisField')
+        console.warn(result)
+        // Filtra solo i campi che hanno user_id corrispondente all'ID dell'utente nel localStorage
+        this.tennisField = result.data.filter((campo) => campo.user_id === userInfo.id)
+        this.filteredTennisField = this.tennisField
+        this.numberOfFields = this.filteredTennisField.length
+      } catch (error) {
+        // Gestisci eventuali errori di caricamento dei dati
+        console.error('Errore nel caricamento dei dati dei campi:', error)
+      }
+    }
   },
+
   async mounted() {
+    this.loadData()
     let user = localStorage.getItem('user-info')
     this.name = JSON.parse(user).name
     if (!user) {

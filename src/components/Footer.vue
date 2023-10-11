@@ -1,19 +1,22 @@
 <!-- Footer.vue -->
 
 <template>
-  <div>
+  <div id="footer-container">
     <footer class="text-center text-lg-start bg-success">
       <div class="container py-5">
         <div class="row justify-content-center align-items-center mail-support">
           <div class="col-lg-12">
-            <a href="mailto:assistenza@tennishub.com" class="text-white d-flex flex-column align-items-center">
+            <a
+              href="mailto:assistenza@tennishub.com"
+              class="text-white d-flex flex-column align-items-center"
+            >
               <font-awesome-icon :icon="['far', 'envelope']" size="2xl" />
               Contatta la nostra assistenza
             </a>
           </div>
         </div>
       </div>
-      <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2)">
         <h5>© 2023 Copyright: Arenella - Borettaz - Castagna</h5>
       </div>
     </footer>
@@ -45,5 +48,13 @@ export default {
 
 .mail-support a:not(:hover):hover {
   transform: scale(1);
+}
+
+#footer-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-top: 50px;
+  height: 60px; /* Regola l'altezza del footer */
 }
 </style>
