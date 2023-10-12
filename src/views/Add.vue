@@ -31,6 +31,8 @@
         <h5 class="mt-3">Indirizzo:</h5>
         <input class="form-control" type="text" name="address" placeholder="Inserisci l'indirizzo del campo..."
           v-model="campo.address" />
+        <h5 class="mt-3">Città:</h5>
+        <input class="form-control" type="text" name="city" placeholder="Inserisci la città..." v-model="campo.city" />
         <button class="mt-4 btn btn-success shadow-sm" type="button" @click="addCampo"
           style="max-width: 420px; margin: 0 auto">
           Aggiungi nuovo campo
@@ -58,6 +60,7 @@ export default {
         name: '',
         address: '',
         contact: '',
+        city: '',
         user_id: ''
       },
       name: '',
@@ -75,7 +78,7 @@ export default {
     async addCampo() {
       console.warn(this.campo)
       // Controlla se uno dei campi è vuoto
-      if (!this.campo.name || !this.campo.address || !this.campo.contact) {
+      if (!this.campo.name || !this.campo.address || !this.campo.contact || !this.campo.city) {
         // Mostra l'alert per campi vuoti
         this.showEmptyFieldsAlert = true
         return // Esci dalla funzione senza inviare la richiesta
@@ -95,6 +98,7 @@ export default {
           name: this.campo.name,
           address: this.campo.address,
           contact: this.campo.contact,
+          city: this.campo.city,
           user_id: this.id
         })
         if (result.status == 201) {
@@ -107,6 +111,7 @@ export default {
           this.campo.name = ''
           this.campo.address = ''
           this.campo.contact = ''
+          this.campo.city = ''
         } else {
           alert("Si è verificato un errore durante l'aggiunta del campo.")
         }

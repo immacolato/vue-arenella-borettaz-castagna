@@ -27,7 +27,7 @@
 
     <h1 class="text-center mt-2">Ciao {{ name }}, benvenuta/o in Tennis Hub</h1>
     <h3 v-if="numberOfFields == 0" class="text-center mt-2">
-      Hai al momento {{ numberOfFields }} campi disponibili
+      Hai al momento {{ numberOfFields }} campi disponibili, aggiungi il tuo primo campo!
     </h3>
     <h3 v-else-if="numberOfFields == 1" class="text-center mt-2">
       Hai al momento {{ numberOfFields }} campo disponibile
@@ -36,19 +36,20 @@
     <!--<button @click="increment">Increment</button>-->
     <!--<button @click="decrement">Decrement</button>-->
     <div class="container">
-      <div class="mb-3 mt-3">
+      <div class="mb-1 mt-3">
         <label for="searchTerm" class="form-label">Cerca:</label>
         <input style="max-width: 320px" type="text" class="form-control" id="searchTerm" v-model="searchTerm"
           @input="performSearch" />
       </div>
       <div class="table-responsive">
-        <table class="mt-5 mb-5 table table-bordered table-hover rounded overflow-hidden">
+        <table class="mt-4 mb-5 table table-bordered table-hover rounded overflow-hidden">
           <thead>
             <tr>
               <th scope="col">ID</th>
               <th scope="col">Nome</th>
               <th scope="col">Contatti</th>
               <th scope="col">Indirizzo</th>
+              <th scope="col">Città</th>
               <th scope="col" class="col-2">Azioni</th>
             </tr>
           </thead>
@@ -58,6 +59,7 @@
               <td>{{ item.name }}</td>
               <td>{{ item.contact }}</td>
               <td>{{ item.address }}</td>
+              <td>{{ item.city }}</td>
               <td>
                 <div class="d-flex justify-content-between align-items-center">
                   <router-link :to="'/update/' + item.id">
@@ -119,7 +121,8 @@ export default {
         return (
           item.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
           item.contact.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-          item.address.toLowerCase().includes(this.searchTerm.toLowerCase())
+          item.address.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+          item.city.toLowerCase().includes(this.searchTerm.toLowerCase())
         )
       })
     },
