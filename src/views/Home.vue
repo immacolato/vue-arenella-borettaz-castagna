@@ -27,12 +27,12 @@
 
     <h1 class="text-center mt-2">Ciao {{ name }}, benvenuta/o in Tennis Hub</h1>
     <h3 v-if="numberOfFields == 0" class="text-center mt-2">
-      Hai al momento {{ numberOfFields }} campi disponibili, aggiungi il tuo primo campo!
+      Hai al momento {{ numberOfFields }} strutture disponibili, aggiungi la tua prima struttura da Tennis!
     </h3>
     <h3 v-else-if="numberOfFields == 1" class="text-center mt-2">
-      Hai al momento {{ numberOfFields }} campo disponibile
+      Hai al momento {{ numberOfFields }} struttura disponibile
     </h3>
-    <h3 v-else class="text-center mt-2">Hai al momento {{ numberOfFields }} campi disponibili</h3>
+    <h3 v-else class="text-center mt-2">Hai al momento {{ numberOfFields }} strutture disponibili</h3>
     <!--<button @click="increment">Increment</button>-->
     <!--<button @click="decrement">Decrement</button>-->
     <div class="container">
@@ -50,7 +50,7 @@
               <th scope="col" class="col-1">Contatti</th>
               <th scope="col" class="col-3">Indirizzo</th>
               <th scope="col">Città</th>
-              <th scope="col">Disponibilità struttura</th>
+              <th scope="col">Disponibilità campi</th>
               <th scope="col" class="col-2">Azioni</th>
             </tr>
           </thead>
