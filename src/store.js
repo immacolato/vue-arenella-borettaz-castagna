@@ -1,16 +1,23 @@
 import { createStore } from 'vuex'
+
 const store = createStore({
   state: {
-    count: 3
+    availableFields: 0
   },
   mutations: {
     increment(state) {
-      console.log(state)
-      state.count++
+      if (state.availableFields < 0) {
+        state.availableFields = 0
+      } else {
+        state.availableFields++
+      }
     },
     decrement(state) {
-      state.count--
+      if (state.availableFields > 0) {
+        state.availableFields--
+      }
     }
   }
 })
+
 export default store

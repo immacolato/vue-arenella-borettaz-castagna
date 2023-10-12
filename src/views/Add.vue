@@ -33,6 +33,20 @@
           v-model="campo.address" />
         <h5 class="mt-3">Città:</h5>
         <input class="form-control" type="text" name="city" placeholder="Inserisci la città..." v-model="campo.city" />
+        <div class="row">
+          <div class="col-6">
+            <h5 class="mt-3">Disponibilità:</h5>
+            <div>
+              <button class="mx-2 rounded" type="button" @click="incrementAvailableFields">+1</button>
+              <button class="mx-2 rounded" type="button" @click="decrementAvailableFields">-1</button>
+            </div>
+          </div>
+          <div class="col-6 d-flex justify-content-end align-items-center">
+            <div class="">
+              <h5>Attualmente disponibili: {{ availableFields }}</h5>
+            </div>
+          </div>
+        </div>
         <button class="mt-4 btn btn-success shadow-sm" type="button" @click="addCampo"
           style="max-width: 420px; margin: 0 auto">
           Aggiungi nuovo campo
@@ -47,12 +61,19 @@
 import SiteHeader from '../components/Header.vue'
 import SiteFooter from '../components/Footer.vue'
 import axios from 'axios'
+import { mapState, mapMutations } from 'vuex';
 
 export default {
   name: 'AddPage',
   components: {
     SiteHeader,
     SiteFooter
+  },
+  computed: {
+    // Mappa lo stato Vuex `count` al tuo componente
+    ...mapState(['count']),
+    // Mappa lo stato Vuex `availableFields` al tuo componente
+    ...mapState(['availableFields']),
   },
   data() {
     return {
@@ -61,6 +82,7 @@ export default {
         address: '',
         contact: '',
         city: '',
+        availableFields: '',
         user_id: ''
       },
       name: '',
@@ -70,6 +92,14 @@ export default {
   },
 
   methods: {
+    // Mappa le mutazioni Vuex `increment` e `decrement` al tuo componente
+    ...mapMutations(['increment', 'decrement']),
+    incrementAvailableFields() {
+      this.increment(); // Chiama la mutazione increment dal tuo store Vuex
+    },
+    decrementAvailableFields() {
+      this.decrement(); // Chiama la mutazione decrement dal tuo store Vuex
+    },
     validatePhoneNumber(phoneNumber) {
       var RE = /^[\d.-]+$/
       return RE.test(phoneNumber)

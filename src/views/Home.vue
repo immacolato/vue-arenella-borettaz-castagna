@@ -50,6 +50,7 @@
               <th scope="col" class="col-1">Contatti</th>
               <th scope="col" class="col-3">Indirizzo</th>
               <th scope="col">Città</th>
+              <th scope="col">Disponibilità struttura</th>
               <th scope="col" class="col-2">Azioni</th>
             </tr>
           </thead>
@@ -60,6 +61,7 @@
               <td>{{ item.contact }}</td>
               <td>{{ item.address }}</td>
               <td>{{ item.city }}</td>
+              <td>{{ availableFields }}</td>
               <td>
                 <div class="d-flex justify-content-between align-items-center">
                   <router-link :to="'/update/' + item.id">
@@ -86,12 +88,15 @@ import SiteHeader from '../components/Header.vue'
 import SiteFooter from '../components/Footer.vue'
 
 import axios from 'axios'
+import { mapState, mapMutations } from 'vuex';
 export default {
   name: 'HomePage',
   computed: {
-    count() {
-      return this.$store.state.count
-    }
+    // Mappa lo stato Vuex `count` al tuo componente
+    ...mapState(['count']),
+    // Mappa lo stato Vuex `availableFields` al tuo componente
+    ...mapState(['availableFields']),
+
   },
 
   data() {
@@ -100,7 +105,7 @@ export default {
       tennisField: [],
       searchTerm: '',
       filteredTennisField: [],
-      numberOfFields: 0
+      numberOfFields: 0,
     }
   },
   components: {
@@ -109,11 +114,13 @@ export default {
   },
 
   methods: {
-    increment() {
-      this.$store.commit('increment')
+    // Mappa le mutazioni Vuex `increment` e `decrement` al tuo componente
+    ...mapMutations(['increment', 'decrement']),
+    incrementAvailableFields() {
+      this.increment(); // Chiama la mutazione increment dal tuo store Vuex
     },
-    decrement() {
-      this.$store.commit('decrement')
+    decrementAvailableFields() {
+      this.decrement(); // Chiama la mutazione decrement dal tuo store Vuex
     },
     performSearch() {
       // Filtra l'array filteredTennisField in base al valore di searchTerm
