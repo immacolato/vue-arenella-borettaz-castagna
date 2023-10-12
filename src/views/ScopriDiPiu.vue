@@ -31,9 +31,9 @@
           Ecco alcune delle caratteristiche salienti di Tennis Hub:
         </p>
         <ul>
-          <li>Aggiungere campi</li>
-          <li>Modificare i campi (nome, indirizzo e contatto)</li>
-          <li>Eliminare campi</li>
+          <li>Aggiungere strutture</li>
+          <li>Modificare le strutture (nome, indirizzo e contatto, città)</li>
+          <li>Eliminare le strutture</li>
         </ul>
         <p>
           Inoltre, il nostro team di supporto è sempre a disposizione per rispondere alle tue domande e offrirti
