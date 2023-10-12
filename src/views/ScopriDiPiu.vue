@@ -2,9 +2,9 @@
   <header class="text-center mb-5">
     <h1 class="mt-4">Scopri di più su TENNIS HUB</h1>
 
-    <router-link to="/login"
-      class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Torna
-      indietro</router-link>
+    <a href="javascript:void(0);" onclick="window.history.back();"
+      class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Torna indietro</a>
+
 
 
   </header>
