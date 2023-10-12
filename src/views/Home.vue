@@ -46,11 +46,11 @@
           <thead>
             <tr>
               <th scope="col">ID</th>
-              <th scope="col" class="col-3">Nome</th>
+              <th scope="col" class="col-2">Nome</th>
               <th scope="col" class="col-1">Contatti</th>
               <th scope="col" class="col-3">Indirizzo</th>
               <th scope="col">Città</th>
-              <th scope="col">Disponibilità campi</th>
+              <th scope="col" class="col-2">Disponibilità campi</th>
               <th scope="col" class="col-2">Azioni</th>
             </tr>
           </thead>
