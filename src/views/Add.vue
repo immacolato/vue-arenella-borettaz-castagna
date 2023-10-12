@@ -1,11 +1,11 @@
 <template>
   <div style="margin-bottom: 240px">
     <SiteHeader />
-    <h1 class="text-center mt-5">Ciao {{ name }}, benvenuta/o nella pagina di aggiunta campi</h1>
+    <h1 class="text-center mt-5">Ciao {{ name }}, benvenuta/o nella pagina di aggiunta strutture</h1>
 
     <!-- Alert personalizzato Bootstrap -->
     <div v-if="showAlert" class="text-center alert alert-success alert-dismissible" role="alert">
-      <strong>Messaggio:</strong> Campo aggiunto con successo!
+      <strong>Messaggio:</strong> Struttura aggiunto con successo!
       <button type="button" class="close rounded btn btn-sm btn-outline-dark ms-3" @click="showAlert = false"
         aria-label="Close">
         <span aria-hidden="true">&times;</span>
@@ -13,7 +13,7 @@
     </div>
 
     <div v-if="showEmptyFieldsAlert" class="text-center alert alert-danger alert-dismissible" role="alert">
-      <strong>Errore:</strong> Assicurati di compilare tutti i campi prima di aggiungere il campo!
+      <strong>Errore:</strong> Assicurati di compilare tutti i campi prima di aggiungere la tua struttura!
       <button type="button" class="close rounded btn btn-sm btn-outline-dark ms-3" @click="showEmptyFieldsAlert = false"
         aria-label="Close">
         <span aria-hidden="true">&times;</span>
@@ -22,7 +22,7 @@
 
     <div class="mt-5 container row align-items-center" style="max-width: 678px; margin: 0 auto">
       <form class="row g-2">
-        <h5 class="mt-2">Nome Campo:</h5>
+        <h5 class="mt-2">Nome struttura:</h5>
         <input class="form-control" type="text" name="name" placeholder="Inserisci il nome del campo..."
           v-model="campo.name" />
         <h5 class="mt-3">Contatto:</h5>

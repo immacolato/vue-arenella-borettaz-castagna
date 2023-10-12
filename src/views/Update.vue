@@ -3,7 +3,7 @@
   <h1 class="text-center mt-5">Ciao {{ name }}, modifica il campo</h1>
 
   <div v-if="showAlert" class="text-center alert alert-success alert-dismissible" role="alert">
-    <strong>Messaggio:</strong> Campo modificato con successo!
+    <strong>Messaggio:</strong> Struttura modificato con successo!
     <button type="button" class="close rounded btn btn-sm btn-outline-dark ms-3" @click="showAlert = false"
       aria-label="Close">
       <span aria-hidden="true">&times;</span>
@@ -12,7 +12,7 @@
 
   <div class="mt-5 container" style="max-width: 678px; margin: 0 auto; margin-bottom: 120px">
     <form class="row g-2">
-      <h5 class="mt-2">Nome Campo:</h5>
+      <h5 class="mt-2">Nome Struttura:</h5>
       <input class="form-control" type="text" name="name" placeholder="Inserisci il nome del campo..."
         v-model="campo.name" />
       <h5 class="mt-3">Contatto:</h5>
@@ -40,7 +40,7 @@
 
       <button class="mt-3 btn btn-success shadow-sm" type="button" v-on:click="aggiornaCampo"
         style="max-width: 420px; margin: 0 auto">
-        Modifica campo
+        Modifica struttura
       </button>
       <button class="btn custom-mb mt-3 btn-danger btn-sm rounded" @click="deleteField(this.$route.params.id)"
         style="max-width: 420px; margin: 0 auto">
