@@ -13,7 +13,7 @@
           </div>
         </div>
       </div>
-      <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      <div class="text-center text-white p-1" style="background-color: rgba(0, 0, 0, 0.2)">
         <h5>© 2023 Copyright: Arenella - Borettaz - Castagna</h5>
       </div>
     </footer>
