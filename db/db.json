@@ -45,6 +45,14 @@
       "city": "Torino",
       "user_id": 2,
       "id": 5
+    },
+    {
+      "name": "Field Lovers",
+      "address": "Via Vittorio Emanuele 126",
+      "contact": "0112344834",
+      "city": "Torino",
+      "user_id": 2,
+      "id": 6
     }
   ]
 }
