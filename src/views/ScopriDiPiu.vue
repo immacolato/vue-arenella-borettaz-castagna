@@ -46,7 +46,7 @@
           liberandoti dallo stress e
           permettendoti di concentrarti su ciò che ami di più: il tennis.
         </p>
-        <router-link to="/login"
+        <router-link to="/sign-up"
           class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Entra a far parte
           di TennisHub!</router-link>
       </div>
