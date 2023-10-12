@@ -31,7 +31,7 @@
           <router-link
             :class="['nav-link', 'rounded', { activeLink: $route.path === '/add' }]"
             to="/add"
-            >Aggiungi Campo</router-link
+            >Aggiungi struttura</router-link
           >
         </li>
       </ul>
