@@ -46,9 +46,9 @@
           <thead>
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Nome</th>
-              <th scope="col">Contatti</th>
-              <th scope="col">Indirizzo</th>
+              <th scope="col" class="col-3">Nome</th>
+              <th scope="col" class="col-1">Contatti</th>
+              <th scope="col" class="col-3">Indirizzo</th>
               <th scope="col">Città</th>
               <th scope="col" class="col-2">Azioni</th>
             </tr>
