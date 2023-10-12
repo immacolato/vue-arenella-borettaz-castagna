@@ -37,8 +37,8 @@
           <div class="col-6">
             <h5 class="mt-3">Disponibilità:</h5>
             <div>
-              <button class="mx-2 rounded" type="button" @click="incrementAvailableFields">+1</button>
-              <button class="mx-2 rounded" type="button" @click="decrementAvailableFields">-1</button>
+              <button class="btn btn-dark rounded" type="button" @click="incrementAvailableFields">+1</button>
+              <button class="btn btn-dark mx-3 rounded" type="button" @click="decrementAvailableFields">-1</button>
             </div>
           </div>
           <div class="col-6 d-flex justify-content-end align-items-center">
