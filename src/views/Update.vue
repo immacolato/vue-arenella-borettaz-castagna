@@ -1,6 +1,6 @@
 <template>
   <SiteHeader />
-  <h1 class="text-center mt-5">Ciao {{ name }}, modifica il campo</h1>
+  <h1 class="text-center mt-5">Ciao {{ name }}, modifica la tua struttura</h1>
 
   <div v-if="showAlert" class="text-center alert alert-success alert-dismissible" role="alert">
     <strong>Messaggio:</strong> Struttura modificato con successo!
