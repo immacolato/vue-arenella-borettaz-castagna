@@ -13,21 +13,13 @@
           <img src="..//assets/carosello3.jpg" class="d-block w-100" alt="..." />
         </div>
       </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExampleAutoplaying"
-        data-bs-slide="prev"
-      >
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExampleAutoplaying"
-        data-bs-slide="next"
-      >
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next </span>
       </button>
@@ -49,14 +41,8 @@
     <div class="container">
       <div class="mb-1 mt-3">
         <label for="searchTerm" class="form-label">Cerca:</label>
-        <input
-          style="max-width: 320px"
-          type="text"
-          class="form-control"
-          id="searchTerm"
-          v-model="searchTerm"
-          @input="performSearch"
-        />
+        <input style="max-width: 320px" type="text" class="form-control" id="searchTerm" v-model="searchTerm"
+          @input="performSearch" />
       </div>
       <div class="table-responsive">
         <table class="mt-4 mb-5 table table-bordered table-hover rounded overflow-hidden">
@@ -67,7 +53,7 @@
               <th scope="col" class="col-1">Contatti</th>
               <th scope="col" class="col-3">Indirizzo</th>
               <th scope="col">Città</th>
-              <th scope="col" class="col-2">Disponibilità strutture</th>
+              <th scope="col" class="col-2">Disponibilità campo</th>
               <th scope="col" class="col-2">Azioni</th>
             </tr>
           </thead>
@@ -130,13 +116,13 @@ export default {
   },
 
   methods: {
-    // Mappa le mutazioni Vuex `increment` e `decrement` al tuo componente
+    // Mappa le mutazioni Vuex `increment` e `decrement` al componente
     ...mapMutations(['increment', 'decrement']),
     incrementAvailableFields() {
-      this.increment() // Chiama la mutazione increment dal tuo store Vuex
+      this.increment() // Chiama la mutazione increment dallo store Vuex
     },
     decrementAvailableFields() {
-      this.decrement() // Chiama la mutazione decrement dal tuo store Vuex
+      this.decrement() // Chiama la mutazione decrement dallo store Vuex
     },
     performSearch() {
       // Filtra l'array filteredTennisField in base al valore di searchTerm

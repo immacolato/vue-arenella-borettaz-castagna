@@ -84,13 +84,13 @@ export default {
     }
   },
   methods: {
-    // Mappa le mutazioni Vuex `increment` e `decrement` al tuo componente
+    // Mappa le mutazioni Vuex `increment` e `decrement` al componente
     ...mapMutations(['increment', 'decrement']),
     incrementAvailableFields() {
-      this.increment(); // Chiama la mutazione increment dal tuo store Vuex
+      this.increment(); // Chiama la mutazione increment dallo store Vuex
     },
     decrementAvailableFields() {
-      this.decrement(); // Chiama la mutazione decrement dal tuo store Vuex
+      this.decrement(); // Chiama la mutazione decrement dallo store Vuex
     },
     async aggiornaCampo() {
       console.warn(this.campo)
@@ -159,7 +159,7 @@ export default {
         this.filteredTennisField = this.tennisField
         this.numberOfFields = this.filteredTennisField.length
       } catch (error) {
-        // Gestisci eventuali errori di caricamento dei dati
+        // Gestione eventuali errori di caricamento dei dati
         console.error('Errore nel caricamento dei dati dei campi:', error)
       }
     }
